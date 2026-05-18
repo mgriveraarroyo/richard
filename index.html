@@ -1,0 +1,2703 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Richard Kerry — DELO. Música urbana de Puerto Rico. Trap sentimental, despecho boricua. Featured en FMS vs Canales Inc y Desamores Vol.3 — Benny Benni / Canales Inc, 2026." />
+  <meta name="keywords" content="Richard Kerry, rvkerry, DELO, Puerto Rico, música urbana, trap boricua, despecho urbano, Benny Benni, Canales Inc, San Juan, Santurce" />
+  <meta name="author" content="Richard Kerry" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Richard Kerry · DELO — Música Urbana · Puerto Rico" />
+  <meta property="og:description" content="DELO · Diamantes en lo oscuro ♠️💎 — trap sentimental, despecho boricua. Featured en FMS vs Canales Inc y Desamores Vol.3 — Benny Benni / Canales Inc, 2026." />
+  <meta property="og:url" content="https://rvkerry.com" />
+  <meta property="og:locale" content="es_PR" />
+  <meta property="og:site_name" content="Richard Kerry" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Richard Kerry · DELO — Música Urbana · Puerto Rico" />
+  <meta name="twitter:description" content="DELO · Diamantes en lo oscuro ♠️💎 — trap sentimental, despecho boricua. Featured en FMS vs Canales Inc y Desamores Vol.3 — Benny Benni / Canales Inc, 2026." />
+
+  <title>Richard Kerry · DELO — Música Urbana · Puerto Rico</title>
+
+  <!-- Google Fonts: Playfair Display (display serif editorial) + Inter (sans servicio) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — DELO PALETTE
+       ============================================================ */
+    :root {
+      --c-black:    #0C0C0C;
+      --c-red:      #C0392B;
+      --c-silver:   #E8E8E8;
+      --c-gold:     #D4A96A;
+      --c-dark:     #111111;
+      --c-mid:      #1A1A1A;
+      --c-border:   rgba(212, 169, 106, 0.18);
+      --c-red-dim:  rgba(192, 57, 43, 0.15);
+      --c-red-glow: rgba(192, 57, 43, 0.35);
+      --c-gold-dim: rgba(212, 169, 106, 0.08);
+
+      --ff-display: 'Bebas Neue', 'Playfair Display', serif;
+      --ff-serif:   'Playfair Display', Georgia, serif;
+      --ff-sans:    'Inter', system-ui, sans-serif;
+
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-fast: 0.2s ease;
+
+      --section-pad: clamp(4rem, 10vw, 8rem);
+      --container:   min(1200px, 92vw);
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background: var(--c-black);
+      color: var(--c-silver);
+    }
+
+    body {
+      font-family: var(--ff-sans);
+      font-weight: 400;
+      line-height: 1.6;
+      background: var(--c-black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    ::selection {
+      background: var(--c-red);
+      color: var(--c-silver);
+    }
+
+    /* ============================================================
+       CUSTOM CURSOR — DEVICE-AWARE (INV-5)
+       ============================================================ */
+    @media (pointer: fine) and (hover: hover) {
+      body { cursor: none; }
+
+      .cursor-dot,
+      .cursor-ring {
+        position: fixed;
+        top: 0; left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+      }
+
+      .cursor-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--c-red);
+        border-radius: 50%;
+      }
+
+      .cursor-ring {
+        width: 32px;
+        height: 32px;
+        border: 1px solid rgba(212, 169, 106, 0.6);
+        border-radius: 50%;
+        transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+      }
+
+      .cursor-ring.hover {
+        width: 52px;
+        height: 52px;
+        border-color: var(--c-red);
+      }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .cursor-dot,
+      .cursor-ring { display: none !important; }
+    }
+
+    /* ============================================================
+       SCROLLBAR
+       ============================================================ */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--c-black); }
+    ::-webkit-scrollbar-thumb { background: var(--c-red); border-radius: 2px; }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem clamp(1.5rem, 5vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), backdrop-filter var(--transition);
+    }
+
+    .nav.scrolled {
+      background: rgba(12, 12, 12, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      letter-spacing: 0.15em;
+      color: var(--c-silver);
+      transition: color var(--transition-fast);
+    }
+
+    .nav-logo span {
+      color: var(--c-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(1.2rem, 3vw, 2.5rem);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--ff-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 232, 0.65);
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--c-gold); }
+
+    .nav-cta {
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-silver) !important;
+      border: 1px solid var(--c-red);
+      padding: 0.5rem 1.1rem;
+      transition: background var(--transition-fast), color var(--transition-fast) !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--c-red);
+      color: var(--c-silver) !important;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--c-silver);
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    @media (max-width: 767px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(12, 12, 12, 0.97);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      letter-spacing: 0.08em;
+      color: var(--c-silver);
+      transition: color var(--transition-fast);
+    }
+
+    .mobile-menu a:hover { color: var(--c-gold); }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--c-silver);
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+
+    /* ============================================================
+       HERO — ARTIST HERO (DELO ERA · CINEMATOGRAPHIC)
+       ============================================================ */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--c-black);
+    }
+
+    /* Atmospheric background — gel rojo de estudio + atardecer dorado boricua */
+    .hero-atmosphere {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* Radial gradient: red studio gel from bottom-left, gold coastal sunset from top-right */
+    .hero-atmosphere::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 85%, rgba(192, 57, 43, 0.28) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 45% at 85% 10%, rgba(212, 169, 106, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 50% 50%, rgba(26, 26, 26, 0.6) 0%, transparent 80%),
+        linear-gradient(180deg, #0C0C0C 0%, #0F0A0A 40%, #0C0808 70%, #0C0C0C 100%);
+    }
+
+    /* Film grain texture overlay */
+    .hero-atmosphere::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    /* Vertical scan lines — cinematic */
+    .hero-scanlines {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+      pointer-events: none;
+    }
+
+    /* Diamond motif — DELO ♠️💎 */
+    .hero-diamond-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-diamond-bg::before {
+      content: '◆';
+      font-size: clamp(40vw, 60vw, 80vw);
+      color: rgba(212, 169, 106, 0.025);
+      line-height: 1;
+      transform: rotate(0deg);
+      animation: diamond-breathe 8s ease-in-out infinite;
+    }
+
+    @keyframes diamond-breathe {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+      50%       { transform: scale(1.04) rotate(2deg); opacity: 1; }
+    }
+
+    /* Era badge — top left */
+    .hero-era-badge {
+      position: absolute;
+      top: clamp(5.5rem, 12vh, 8rem);
+      left: clamp(1.5rem, 5vw, 4rem);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .hero-era-badge-line {
+      font-family: var(--ff-sans);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(212, 169, 106, 0.7);
+    }
+
+    .hero-era-badge-symbol {
+      font-size: 1rem;
+      color: var(--c-gold);
+      opacity: 0.8;
+    }
+
+    /* Main hero content */
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding: 0 clamp(1.5rem, 5vw, 3rem);
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--ff-sans);
+      font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--c-red);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fade-up 1s ease forwards 0.3s;
+    }
+
+    .hero-name {
+      font-family: var(--ff-display);
+      font-size: clamp(4.5rem, 16vw, 14rem);
+      line-height: 0.88;
+      letter-spacing: 0.04em;
+      color: var(--c-silver);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      opacity: 0;
+      animation: fade-up 1s ease forwards 0.5s;
+    }
+
+    .hero-name-accent {
+      display: block;
+      color: var(--c-gold);
+      font-size: 0.55em;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-era-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 8vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: 0.06em;
+      color: var(--c-red);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fade-up 1s ease forwards 0.7s;
+    }
+
+    /* Red underline accent */
+    .hero-era-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: var(--c-gold);
+      margin: 0.8rem auto 0;
+    }
+
+    .hero-tagline {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+      color: rgba(232, 232, 232, 0.55);
+      letter-spacing: 0.04em;
+      margin-bottom: 2.8rem;
+      opacity: 0;
+      animation: fade-up 1s ease forwards 0.9s;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fade-up 1s ease forwards 1.1s;
+    }
+
+    .btn-primary {
+      font-family: var(--ff-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      background: var(--c-red);
+      border: 1px solid var(--c-red);
+      padding: 0.9rem 2.2rem;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      background: #a93226;
+      box-shadow: 0 0 30px rgba(192, 57, 43, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:hover::before { opacity: 1; }
+
+    .btn-secondary {
+      font-family: var(--ff-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      background: transparent;
+      border: 1px solid rgba(212, 169, 106, 0.4);
+      padding: 0.9rem 2.2rem;
+      transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--c-gold);
+      color: var(--c-silver);
+      transform: translateY(-1px);
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fade-up 1s ease forwards 1.5s;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(180deg, transparent, var(--c-gold));
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+
+    .hero-scroll-text {
+      font-family: var(--ff-sans);
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(212, 169, 106, 0.5);
+    }
+
+    @keyframes scroll-pulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%       { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    /* ============================================================
+       SECTION SHARED STYLES
+       ============================================================ */
+    .section {
+      padding: var(--section-pad) 0;
+      position: relative;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--c-red);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--c-red);
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: normal;
+      color: var(--c-gold);
+    }
+
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--c-border), transparent);
+      margin: 0;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ============================================================
+       SMARTLINK HUB
+       ============================================================ */
+    #musica {
+      background: var(--c-dark);
+    }
+
+    .smartlink-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 767px) {
+      .smartlink-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Anchor track — Te Gusta El Peligro — featured card */
+    .track-anchor {
+      grid-column: 1 / -1;
+      background: var(--c-mid);
+      border: 1px solid var(--c-border);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-fast);
+    }
+
+    .track-anchor::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--c-red), var(--c-gold));
+    }
+
+    .track-anchor:hover {
+      border-color: rgba(192, 57, 43, 0.4);
+    }
+
+    .track-anchor-inner {
+      display: flex;
+      align-items: center;
+      gap: clamp(1.2rem, 3vw, 2rem);
+      flex-wrap: wrap;
+    }
+
+    .track-anchor-badge {
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      background: var(--c-red);
+      padding: 0.3rem 0.7rem;
+      white-space: nowrap;
+    }
+
+    .track-anchor-info {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .track-anchor-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .track-anchor-meta {
+      font-family: var(--ff-sans);
+      font-size: 0.78rem;
+      color: rgba(232, 232, 232, 0.5);
+      letter-spacing: 0.05em;
+    }
+
+    .track-anchor-meta strong {
+      color: var(--c-gold);
+      font-weight: 500;
+    }
+
+    .track-anchor-stats {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+
+    .track-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .track-stat-num {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      color: var(--c-red);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .track-stat-label {
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 232, 0.4);
+    }
+
+    .track-anchor-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      min-width: 160px;
+    }
+
+    .platform-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 232, 0.65);
+      border: 1px solid rgba(232, 232, 232, 0.1);
+      padding: 0.55rem 1rem;
+      transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .platform-link:hover {
+      color: var(--c-silver);
+      border-color: rgba(232, 232, 232, 0.3);
+      background: rgba(232, 232, 232, 0.04);
+    }
+
+    .platform-link svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* Spotify embed card */
+    .track-embed-card {
+      background: var(--c-mid);
+      border: 1px solid var(--c-border);
+      padding: clamp(1.2rem, 3vw, 2rem);
+      transition: border-color var(--transition-fast);
+    }
+
+    .track-embed-card:hover {
+      border-color: rgba(212, 169, 106, 0.3);
+    }
+
+    .track-embed-label {
+      font-family: var(--ff-sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(212, 169, 106, 0.6);
+      margin-bottom: 1rem;
+    }
+
+    .track-embed-card iframe {
+      border-radius: 0;
+      display: block;
+    }
+
+    /* Credentials card */
+    .credentials-card {
+      background: var(--c-mid);
+      border: 1px solid var(--c-border);
+      padding: clamp(1.2rem, 3vw, 2rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .credentials-card::after {
+      content: '◆';
+      position: absolute;
+      bottom: -1rem;
+      right: 1rem;
+      font-size: 5rem;
+      color: rgba(212, 169, 106, 0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .credentials-label {
+      font-family: var(--ff-sans);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(212, 169, 106, 0.6);
+      margin-bottom: 1.2rem;
+    }
+
+    .credential-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(212, 169, 106, 0.08);
+    }
+
+    .credential-item:last-child { border-bottom: none; }
+
+    .credential-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--c-red);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.4rem;
+    }
+
+    .credential-text {
+      font-family: var(--ff-sans);
+      font-size: 0.82rem;
+      color: rgba(232, 232, 232, 0.75);
+      line-height: 1.5;
+    }
+
+    .credential-text strong {
+      color: var(--c-silver);
+      font-weight: 500;
+    }
+
+    .credential-text em {
+      color: var(--c-gold);
+      font-style: normal;
+    }
+
+    /* ============================================================
+       TOUR / ACTIVIDAD (sin fechas reales — INV-3)
+       ============================================================ */
+    #actividad {
+      background: var(--c-black);
+      position: relative;
+    }
+
+    #actividad::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--c-border), transparent);
+    }
+
+    .actividad-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 767px) {
+      .actividad-layout { grid-template-columns: 1fr; }
+    }
+
+    .actividad-presencia {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .presencia-item {
+      background: var(--c-mid);
+      border-left: 2px solid var(--c-red);
+      padding: 1.2rem 1.5rem;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .presencia-item:hover {
+      background: rgba(26, 26, 26, 0.8);
+      border-left-color: var(--c-gold);
+    }
+
+    .presencia-year {
+      font-family: var(--ff-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--c-red);
+      margin-bottom: 0.3rem;
+    }
+
+    .presencia-title {
+      font-family: var(--ff-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--c-silver);
+      margin-bottom: 0.2rem;
+      font-style: italic;
+    }
+
+    .presencia-meta {
+      font-family: var(--ff-sans);
+      font-size: 0.75rem;
+      color: rgba(232, 232, 232, 0.5);
+      letter-spacing: 0.04em;
+    }
+
+    .presencia-meta strong {
+      color: var(--c-gold);
+      font-weight: 500;
+    }
+
+    .actividad-cta-block {
+      background: var(--c-mid);
+      border: 1px solid var(--c-border);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .actividad-cta-block::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--c-red), transparent);
+    }
+
+    .actividad-cta-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+
+    .actividad-cta-title span { color: var(--c-gold); }
+
+    .actividad-cta-text {
+      font-family: var(--ff-sans);
+      font-size: 0.88rem;
+      color: rgba(232, 232, 232, 0.6);
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    /* ============================================================
+       FAN CLUB CAPTURE
+       ============================================================ */
+    #fanclub {
+      background: var(--c-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #fanclub::before {
+      content: 'DELO';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--ff-display);
+      font-size: clamp(15vw, 25vw, 30vw);
+      color: rgba(192, 57, 43, 0.04);
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .fanclub-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    @media (max-width: 767px) {
+      .fanclub-layout { grid-template-columns: 1fr; }
+    }
+
+    .fanclub-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .fanclub-headline {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 7vw, 6rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      margin-bottom: 1.2rem;
+    }
+
+    .fanclub-headline span { color: var(--c-red); }
+
+    .fanclub-subhead {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      color: rgba(232, 232, 232, 0.55);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .fanclub-proof {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .fanclub-proof-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .fanclub-proof-num {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      color: var(--c-gold);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .fanclub-proof-label {
+      font-family: var(--ff-sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 232, 0.4);
+    }
+
+    .fanclub-form {
+      position: relative;
+      z-index: 1;
+      background: rgba(17, 17, 17, 0.8);
+      border: 1px solid var(--c-border);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .fanclub-form-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      margin-bottom: 0.4rem;
+    }
+
+    .fanclub-form-sub {
+      font-family: var(--ff-sans);
+      font-size: 0.78rem;
+      color: rgba(232, 232, 232, 0.45);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 232, 0.5);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(232, 232, 232, 0.12);
+      color: var(--c-silver);
+      font-family: var(--ff-sans);
+      font-size: 0.88rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: var(--c-red);
+      background: rgba(192, 57, 43, 0.04);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(232, 232, 232, 0.2);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-select option {
+      background: var(--c-dark);
+      color: var(--c-silver);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    @media (max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .form-note {
+      font-family: var(--ff-sans);
+      font-size: 0.65rem;
+      color: rgba(232, 232, 232, 0.3);
+      margin-top: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .form-success-icon {
+      font-size: 2rem;
+      color: var(--c-gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .form-success-text {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+    }
+
+    /* ============================================================
+       EPK PAGE
+       ============================================================ */
+    #epk {
+      background: var(--c-black);
+      position: relative;
+    }
+
+    #epk::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--c-border), transparent);
+    }
+
+    .epk-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 767px) {
+      .epk-layout { grid-template-columns: 1fr; }
+    }
+
+    .epk-bio {
+      background: var(--c-mid);
+      border: 1px solid var(--c-border);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      position: relative;
+    }
+
+    .epk-bio::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--c-red), transparent);
+    }
+
+    .epk-bio-text {
+      font-family: var(--ff-serif);
+      font-size: clamp(0.88rem, 1.8vw, 1rem);
+      line-height: 1.8;
+      color: rgba(232, 232, 232, 0.8);
+    }
+
+    .epk-bio-text p + p {
+      margin-top: 1rem;
+    }
+
+    .epk-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 1.5rem;
+    }
+
+    .epk-metric {
+      background: rgba(12, 12, 12, 0.6);
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(212, 169, 106, 0.1);
+    }
+
+    .epk-metric-num {
+      font-family: var(--ff-display);
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      color: var(--c-red);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .epk-metric-label {
+      font-family: var(--ff-sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 232, 0.4);
+      line-height: 1.3;
+    }
+
+    .epk-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .epk-card {
+      background: var(--c-mid);
+      border: 1px solid var(--c-border);
+      padding: clamp(1.2rem, 3vw, 1.8rem);
+    }
+
+    .epk-card-title {
+      font-family: var(--ff-sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 1rem;
+    }
+
+    .epk-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .epk-tag {
+      font-family: var(--ff-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: rgba(232, 232, 232, 0.65);
+      border: 1px solid rgba(232, 232, 232, 0.12);
+      padding: 0.3rem 0.7rem;
+    }
+
+    .epk-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .epk-link-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--ff-sans);
+      font-size: 0.8rem;
+      color: rgba(232, 232, 232, 0.65);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(232, 232, 232, 0.06);
+      transition: color var(--transition-fast);
+    }
+
+    .epk-link-item:last-child { border-bottom: none; }
+    .epk-link-item:hover { color: var(--c-gold); }
+
+    .epk-link-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--c-red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .epk-contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .epk-contact-item {
+      font-family: var(--ff-sans);
+      font-size: 0.8rem;
+      color: rgba(232, 232, 232, 0.6);
+    }
+
+    .epk-contact-item strong {
+      color: var(--c-silver);
+      font-weight: 500;
+    }
+
+    .epk-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      border: 1px solid rgba(232, 232, 232, 0.2);
+      padding: 0.7rem 1.2rem;
+      margin-top: 1rem;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .epk-download-btn:hover {
+      border-color: var(--c-gold);
+      background: rgba(212, 169, 106, 0.05);
+    }
+
+    /* ============================================================
+       BOOKING FORM
+       ============================================================ */
+    #booking {
+      background: var(--c-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #booking::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--c-border), transparent);
+    }
+
+    /* Red atmospheric accent */
+    #booking::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 40%;
+      height: 60%;
+      background: radial-gradient(ellipse at 100% 100%, rgba(192, 57, 43, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+
+    @media (max-width: 767px) {
+      .booking-layout { grid-template-columns: 1fr; }
+    }
+
+    .booking-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .booking-headline {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      margin-bottom: 1.2rem;
+    }
+
+    .booking-headline span { color: var(--c-red); }
+
+    .booking-body {
+      font-family: var(--ff-sans);
+      font-size: 0.9rem;
+      color: rgba(232, 232, 232, 0.55);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .booking-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .booking-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .booking-info-icon {
+      width: 20px;
+      height: 20px;
+      background: rgba(192, 57, 43, 0.15);
+      border: 1px solid rgba(192, 57, 43, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .booking-info-icon svg {
+      width: 10px;
+      height: 10px;
+      color: var(--c-red);
+    }
+
+    .booking-info-text {
+      font-family: var(--ff-sans);
+      font-size: 0.82rem;
+      color: rgba(232, 232, 232, 0.6);
+      line-height: 1.5;
+    }
+
+    .booking-info-text strong {
+      color: var(--c-silver);
+      font-weight: 500;
+    }
+
+    .booking-form-wrap {
+      position: relative;
+      z-index: 1;
+      background: rgba(17, 17, 17, 0.7);
+      border: 1px solid var(--c-border);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .booking-form-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      margin-bottom: 0.3rem;
+    }
+
+    .booking-form-sub {
+      font-family: var(--ff-sans);
+      font-size: 0.75rem;
+      color: rgba(232, 232, 232, 0.4);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      background: var(--c-black);
+      border-top: 1px solid var(--c-border);
+      padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 767px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .footer-brand-name {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-silver);
+      line-height: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-brand-era {
+      font-family: var(--ff-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-desc {
+      font-family: var(--ff-sans);
+      font-size: 0.8rem;
+      color: rgba(232, 232, 232, 0.4);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer-social-link {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(232, 232, 232, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .footer-social-link:hover {
+      border-color: var(--c-red);
+      background: rgba(192, 57, 43, 0.1);
+    }
+
+    .footer-social-link svg {
+      width: 14px;
+      height: 14px;
+      color: rgba(232, 232, 232, 0.6);
+    }
+
+    .footer-col-title {
+      font-family: var(--ff-sans);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      font-family: var(--ff-sans);
+      font-size: 0.82rem;
+      color: rgba(232, 232, 232, 0.45);
+      transition: color var(--transition-fast);
+    }
+
+    .footer-links a:hover { color: var(--c-silver); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(232, 232, 232, 0.06);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      color: rgba(232, 232, 232, 0.25);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-diamond {
+      font-size: 0.9rem;
+      color: rgba(212, 169, 106, 0.3);
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ============================================================
+       UTILITY
+       ============================================================ */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .text-gold { color: var(--c-gold); }
+    .text-red  { color: var(--c-red); }
+
+    /* ============================================================
+       RESPONSIVE ADJUSTMENTS
+       ============================================================ */
+    @media (max-width: 480px) {
+      .hero-name {
+        font-size: clamp(3.5rem, 18vw, 6rem);
+      }
+      .hero-era-title {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .smartlink-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+      .track-anchor {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* ============================================================
+       PRINT / EPK SHARE
+       ============================================================ */
+    @media print {
+      .nav, .hero-scroll, .cursor-dot, .cursor-ring, .mobile-menu { display: none !important; }
+      #hero { min-height: auto; padding: 4rem 0 2rem; }
+      body { background: white; color: black; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Custom cursor (INV-5: pointer:fine only) -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Mobile menu -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Cerrar menú">✕</button>
+    <a href="#musica" onclick="closeMobileMenu()">Música</a>
+    <a href="#actividad" onclick="closeMobileMenu()">Actividad</a>
+    <a href="#fanclub" onclick="closeMobileMenu()">Fanclub</a>
+    <a href="#epk" onclick="closeMobileMenu()">EPK</a>
+    <a href="#booking" onclick="closeMobileMenu()">Booking</a>
+  </nav>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav" id="mainNav" aria-label="Navegación principal">
+      <a href="#hero" class="nav-logo" aria-label="Richard Kerry — inicio">
+        RICHARD <span>KERRY</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#musica">Música</a></li>
+        <li><a href="#actividad">Actividad</a></li>
+        <li><a href="#fanclub">Fanclub</a></li>
+        <li><a href="#epk">EPK</a></li>
+        <li><a href="#booking" class="nav-cta">Booking</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SECTION 1 · ARTIST HERO
+         ============================================================ -->
+    <section id="hero" aria-label="Richard Kerry — DELO">
+
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+      <div class="hero-scanlines" aria-hidden="true"></div>
+      <div class="hero-diamond-bg" aria-hidden="true"></div>
+
+      <!-- Era badge -->
+      <div class="hero-era-badge" aria-hidden="true">
+        <span class="hero-era-badge-line">San Juan · Santurce · Puerto Rico</span>
+        <span class="hero-era-badge-line">Música Urbana · Trap Sentimental</span>
+        <span class="hero-era-badge-symbol">♠️ ◆</span>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Artista Urbano Independiente · Puerto Rico</p>
+
+        <h1 class="hero-name">
+          Richard
+          <span class="hero-name-accent">Kerry</span>
+        </h1>
+
+        <p class="hero-era-title">D.E.L.O.</p>
+
+        <p class="hero-tagline">
+          Diamantes en lo oscuro &nbsp;♠️&nbsp;💎&nbsp; — despecho boricua, lirismo de barrio
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#musica" class="btn-primary">Escucha Ahora</a>
+          <a href="#booking" class="btn-secondary">Booking</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span class="hero-scroll-text">Scroll</span>
+      </div>
+
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 2 · SMARTLINK HUB
+         ============================================================ -->
+    <section id="musica" class="section" aria-label="Música de Richard Kerry">
+      <div class="container">
+
+        <p class="section-label reveal">Catálogo</p>
+        <h2 class="section-title reveal reveal-delay-1">
+          La <em>Música</em>
+        </h2>
+
+        <div class="smartlink-grid">
+
+          <!-- Track ancla de mercado: Te Gusta El Peligro -->
+          <article class="track-anchor reveal reveal-delay-2" aria-label="Te Gusta El Peligro — track ancla de mercado">
+            <div class="track-anchor-inner">
+
+              <div class="track-anchor-info">
+                <div class="track-anchor-badge">Mayor Tracción</div>
+                <h3 class="track-anchor-title">Te Gusta El Peligro</h3>
+                <p class="track-anchor-meta">
+                  Benny Benni ft. Richard Kerry &nbsp;·&nbsp;
+                  <strong>FMS vs Canales Inc</strong> &nbsp;·&nbsp; Track 8 · 2026
+                </p>
+                <div class="track-anchor-stats">
+                  <div class="track-stat">
+                    <span class="track-stat-num">~10K</span>
+                    <span class="track-stat-label">Vistas YouTube</span>
+                  </div>
+                  <div class="track-stat">
+                    <span class="track-stat-num">1,287</span>
+                    <span class="track-stat-label">Likes · Post Anuncio</span>
+                  </div>
+                  <div class="track-stat">
+                    <span class="track-stat-num">55%</span>
+                    <span class="track-stat-label">Engagement Rate</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="track-anchor-links">
+                <a
+                  href="https://www.youtube.com/results?search_query=Te+Gusta+El+Peligro+Benny+Benni+Richard+Kerry"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="platform-link"
+                  aria-label="Escuchar Te Gusta El Peligro en YouTube"
+                >
+                  <!-- YouTube icon -->
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                  YouTube
+                </a>
+                <a
+                  href="https://open.spotify.com/search/Te%20Gusta%20El%20Peligro%20Benny%20Benni%20Richard%20Kerry"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="platform-link"
+                  aria-label="Buscar Te Gusta El Peligro en Spotify"
+                >
+                  <!-- Spotify icon -->
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                  </svg>
+                  Spotify
+                </a>
+                <a
+                  href="https://music.apple.com/search?term=Te+Gusta+El+Peligro+Benny+Benni"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="platform-link"
+                  aria-label="Buscar Te Gusta El Peligro en Apple Music"
+                >
+                  <!-- Apple Music icon -->
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 0 0-1.877-.726 10.496 10.496 0 0 0-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208a5.01 5.01 0 0 0-.35 1.48 23.65 23.65 0 0 0-.123 2.256v9.112c.006.403.02.806.05 1.208.053.86.165 1.71.46 2.528.54 1.504 1.59 2.534 3.103 3.07.637.226 1.296.33 1.97.375.667.046 1.334.06 2.003.06h8.97c.668 0 1.334-.014 2.003-.06.674-.044 1.332-.15 1.97-.375 1.514-.536 2.563-1.566 3.103-3.07.295-.818.407-1.668.46-2.528.03-.402.044-.805.05-1.208V8.124c0-.668-.014-1.334-.06-2.003zm-6.498 3.876l-5.37 3.1c-.14.082-.28.123-.42.123-.14 0-.28-.04-.42-.123l-5.37-3.1c-.28-.162-.42-.405-.42-.69s.14-.527.42-.69l5.37-3.1c.28-.162.56-.162.84 0l5.37 3.1c.28.163.42.405.42.69s-.14.528-.42.69z"/>
+                  </svg>
+                  Apple Music
+                </a>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Spotify embed: Ojos Cafe (track verificado del bio) -->
+          <article class="track-embed-card reveal reveal-delay-3" aria-label="Ojos Cafe — Benny Benni, Richard Kerry">
+            <p class="track-embed-label">Escucha · Ojos Cafe</p>
+            <iframe
+              src="https://open.spotify.com/embed/track/0iV3tL2ZOoUzTaKbtrdi8I?utm_source=generator&theme=0"
+              width="100%"
+              height="152"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Ojos Cafe — Benny Benni, Richard Kerry · Spotify"
+            ></iframe>
+            <p style="font-family:var(--ff-sans);font-size:0.7rem;color:rgba(232,232,232,0.35);margin-top:0.8rem;letter-spacing:0.04em;">
+              Ojos Cafe · Benny Benni, Richard Kerry
+            </p>
+          </article>
+
+          <!-- Credenciales -->
+          <article class="credentials-card reveal reveal-delay-4" aria-label="Credenciales y colaboraciones">
+            <p class="credentials-label">Credenciales · 2026</p>
+
+            <div class="credential-item">
+              <div class="credential-dot"></div>
+              <p class="credential-text">
+                Featured en <strong><em>FMS vs Canales Inc</em></strong> — Benny Benni / Serving Sounds / Canales Inc · 2026
+              </p>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-dot"></div>
+              <p class="credential-text">
+                Featured en <strong><em>Desamores Vol.3</em></strong> — Benny Benni / Serving Sounds / Canales Inc · 2026
+              </p>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-dot"></div>
+              <p class="credential-text">
+                <em>Te Gusta El Peligro</em> — Track 8 de 9 en <strong>FMS vs Canales Inc</strong> · ~10K vistas YouTube
+              </p>
+            </div>
+
+            <div class="credential-item">
+              <div class="credential-dot"></div>
+              <p class="credential-text">
+                Post de anuncio: <strong>1,287 likes</strong> · 55% engagement rate · 20× el promedio de su perfil
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 3 · ACTIVIDAD / TOUR CALENDAR (INV-3: sin fechas inventadas)
+         ============================================================ -->
+    <section id="actividad" class="section" aria-label="Actividad y presencia de Richard Kerry">
+      <div class="container">
+
+        <p class="section-label reveal">Presencia</p>
+        <h2 class="section-title reveal reveal-delay-1">
+          En <em>Movimiento</em>
+        </h2>
+
+        <div class="actividad-layout">
+
+          <div class="actividad-presencia reveal reveal-delay-2">
+
+            <div class="presencia-item">
+              <p class="presencia-year">2026</p>
+              <p class="presencia-title">FMS vs Canales Inc</p>
+              <p class="presencia-meta">
+                Benny Benni / <strong>Serving Sounds · Canales Inc</strong> &nbsp;·&nbsp; Track 8: Te Gusta El Peligro
+              </p>
+            </div>
+
+            <div class="presencia-item">
+              <p class="presencia-year">2026</p>
+              <p class="presencia-title">Desamores Vol.3</p>
+              <p class="presencia-meta">
+                Benny Benni / <strong>Serving Sounds · Canales Inc</strong> &nbsp;·&nbsp; Feature confirmado
+              </p>
+            </div>
+
+            <div class="presencia-item">
+              <p class="presencia-year">2026</p>
+              <p class="presencia-title">Ojos Cafe</p>
+              <p class="presencia-meta">
+                Benny Benni, Richard Kerry &nbsp;·&nbsp; <strong>Spotify · Plataformas digitales</strong>
+              </p>
+            </div>
+
+          </div>
+
+          <div class="actividad-cta-block reveal reveal-delay-3">
+            <h3 class="actividad-cta-title">
+              Próximas<br /><span>Fechas</span>
+            </h3>
+            <p class="actividad-cta-text">
+              Actívate para ser el primero en saber cuándo Richard Kerry toca en tarima. Deja tu contacto y te avisamos directo — sin intermediarios.
+            </p>
+            <a href="#fanclub" class="btn-primary">Actívate 👇</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 4 · FAN CLUB CAPTURE
+         ============================================================ -->
+    <section id="fanclub" class="section" aria-label="Fanclub de Richard Kerry — DELO">
+      <div class="container">
+
+        <div class="fanclub-layout">
+
+          <div class="fanclub-copy reveal">
+            <p class="section-label">Comunidad</p>
+            <h2 class="fanclub-headline">
+              Sé Parte<br />del <span>DELO</span>
+            </h2>
+            <p class="fanclub-subhead">
+              Sé el primero en saber cuándo suelta DELO. Acceso directo a Richard Kerry — sin algoritmos, sin intermediarios.
+            </p>
+            <div class="fanclub-proof">
+              <div class="fanclub-proof-item">
+                <span class="fanclub-proof-num">2,327</span>
+                <span class="fanclub-proof-label">Seguidores IG</span>
+              </div>
+              <div class="fanclub-proof-item">
+                <span class="fanclub-proof-num">55%</span>
+                <span class="fanclub-proof-label">Engagement Rate</span>
+              </div>
+              <div class="fanclub-proof-item">
+                <span class="fanclub-proof-num">2</span>
+                <span class="fanclub-proof-label">Álbumes 2026</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fanclub-form reveal reveal-delay-2">
+            <h3 class="fanclub-form-title">Únete al Fanclub</h3>
+            <p class="fanclub-form-sub">
+              Lanzamientos, fechas de tarima y contenido exclusivo — directo a ti.
+            </p>
+
+            <form id="fanclubForm" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="fc-name">Nombre</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="fc-name"
+                  name="name"
+                  placeholder="Tu nombre"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fc-email">Email</label>
+                  <input
+                    class="form-input"
+                    type="email"
+                    id="fc-email"
+                    name="email"
+                    placeholder="tu@email.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="fc-whatsapp">WhatsApp <span style="color:rgba(232,232,232,0.3);font-weight:400;">(opcional)</span></label>
+                  <input
+                    class="form-input"
+                    type="tel"
+                    id="fc-whatsapp"
+                    name="whatsapp"
+                    placeholder="+1 787 000 0000"
+                    autocomplete="tel"
+                  />
+                </div>
+              </div>
+              <button type="submit" class="btn-primary" style="width:100%;justify-content:center;display:block;text-align:center;">
+                Quiero Acceso Directo
+              </button>
+              <p class="form-note">
+                Tu información es de Richard Kerry — nunca se vende ni comparte con terceros. Puedes darte de baja cuando quieras.
+              </p>
+            </form>
+
+            <div class="form-success" id="fanclubSuccess">
+              <div class="form-success-icon">◆</div>
+              <p class="form-success-text">¡Bienvenido al DELO!</p>
+              <p style="font-family:var(--ff-sans);font-size:0.82rem;color:rgba(232,232,232,0.5);margin-top:0.5rem;">
+                Pronto recibirás noticias directas de Richard Kerry.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 5 · EPK PAGE
+         ============================================================ -->
+    <section id="epk" class="section" aria-label="EPK — Electronic Press Kit de Richard Kerry">
+      <div class="container">
+
+        <p class="section-label reveal">Press Kit</p>
+        <h2 class="section-title reveal reveal-delay-1">
+          EPK · <em>Prensa</em>
+        </h2>
+        <p style="font-family:var(--ff-sans);font-size:0.78rem;letter-spacing:0.1em;color:rgba(232,232,232,0.35);margin-bottom:0;margin-top:-0.8rem;" class="reveal reveal-delay-1">
+          Shareable por URL · Para promotores, medios y booking
+        </p>
+
+        <div class="epk-layout">
+
+          <!-- Bio + métricas -->
+          <div class="epk-bio reveal reveal-delay-2">
+            <div class="epk-bio-text">
+              <p>
+                Richard Kerry es un artista urbano independiente de San Juan / Santurce, Puerto Rico, cuyo sonido define el trap sentimental boricua: lirismo de barrio, despecho cinematográfico y una voz que convierte la calle en poesía oscura.
+              </p>
+              <p>
+                En 2026 consolidó su presencia en el ecosistema de <strong>Benny Benni</strong> y <strong>Canales Inc</strong> con features en dos álbumes de alto perfil: <em>FMS vs Canales Inc</em> y <em>Desamores Vol.3</em> — ambos bajo el sello <strong>Serving Sounds</strong>. Su track <em>Te Gusta El Peligro</em> (feat. Benny Benni) alcanzó ~10K vistas en YouTube y generó un post de anuncio con 1,287 likes en Instagram — un 55% de engagement rate, 20 veces su promedio de perfil.
+              </p>
+              <p>
+                Su marca-era <strong>DELO · Diamantes en lo oscuro ♠️💎</strong> define un ciclo creativo de sonido oscuro, introspectivo y crudo-pulido, posicionándolo como una de las voces más auténticas del despecho urbano en Puerto Rico.
+              </p>
+            </div>
+
+            <div class="epk-metrics">
+              <div class="epk-metric">
+                <p class="epk-metric-num">~10K</p>
+                <p class="epk-metric-label">Vistas YouTube<br />Te Gusta El Peligro</p>
+              </div>
+              <div class="epk-metric">
+                <p class="epk-metric-num">1,287</p>
+                <p class="epk-metric-label">Likes · Post Anuncio<br />IG @rvkerry</p>
+              </div>
+              <div class="epk-metric">
+                <p class="epk-metric-num">55%</p>
+                <p class="epk-metric-label">Engagement Rate<br />20× promedio perfil</p>
+              </div>
+              <div class="epk-metric">
+                <p class="epk-metric-num">2</p>
+                <p class="epk-metric-label">Álbumes 2026<br />Benny Benni / Canales Inc</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sidebar EPK -->
+          <div class="epk-sidebar reveal reveal-delay-3">
+
+            <div class="epk-card">
+              <p class="epk-card-title">Género / Estilo</p>
+              <div class="epk-tag-list">
+                <span class="epk-tag">Trap Sentimental</span>
+                <span class="epk-tag">Despecho Urbano</span>
+                <span class="epk-tag">Boricua</span>
+                <span class="epk-tag">Urbano PR</span>
+                <span class="epk-tag">Trap Cinematográfico</span>
+                <span class="epk-tag">Lirismo de Barrio</span>
+              </div>
+            </div>
+
+            <div class="epk-card">
+              <p class="epk-card-title">Música</p>
+              <div class="epk-links-list">
+                <a
+                  href="https://www.youtube.com/results?search_query=Te+Gusta+El+Peligro+Benny+Benni+Richard+Kerry"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="epk-link-item"
+                >
+                  <span class="epk-link-dot"></span>
+                  Te Gusta El Peligro — YouTube
+                </a>
+                <a
+                  href="https://open.spotify.com/track/0iV3tL2ZOoUzTaKbtrdi8I"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="epk-link-item"
+                >
+                  <span class="epk-link-dot"></span>
+                  Ojos Cafe — Spotify
+                </a>
+                <a
+                  href="https://open.spotify.com/search/Richard%20Kerry%20Benny%20Benni"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="epk-link-item"
+                >
+                  <span class="epk-link-dot"></span>
+                  Catálogo completo — Spotify
+                </a>
+              </div>
+            </div>
+
+            <div class="epk-card">
+              <p class="epk-card-title">Redes</p>
+              <div class="epk-links-list">
+                <a
+                  href="https://www.instagram.com/rvkerry"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="epk-link-item"
+                >
+                  <span class="epk-link-dot"></span>
+                  Instagram · @rvkerry
+                </a>
+              </div>
+            </div>
+
+            <div class="epk-card">
+              <p class="epk-card-title">Contacto Booking</p>
+              <div class="epk-contact-info">
+                <p class="epk-contact-item">
+                  <strong>Ubicación:</strong> San Juan / Santurce, Puerto Rico
+                </p>
+                <p class="epk-contact-item">
+                  <strong>Email:</strong>
+                  <span style="color:rgba(232,232,232,0.35);font-size:0.75rem;">
+                    <!-- IRREDUCIBLE: conectar email de Richard antes del deploy -->
+                    [Contacto vía formulario de booking ↓]
+                  </span>
+                </p>
+              </div>
+              <a href="#booking" class="epk-download-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Solicitar Booking
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SECTION 6 · BOOKING FORM
+         ============================================================ -->
+    <section id="booking" class="section" aria-label="Booking — Contratar a Richard Kerry">
+      <div class="container">
+
+        <div class="booking-layout">
+
+          <div class="booking-copy reveal">
+            <p class="section-label">Booking</p>
+            <h2 class="booking-headline">
+              ¿Quieres a<br />Richard<br /><span>Kerry</span><br />en tu Tarima?
+            </h2>
+            <p class="booking-body">
+              Escríbenos directamente. Respondemos rápido — sin intermediarios, sin fricción.
+            </p>
+
+            <div class="booking-info-list">
+              <div class="booking-info-item">
+                <div class="booking-info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <p class="booking-info-text">
+                  <strong>Base:</strong> San Juan / Santurce, Puerto Rico — disponible para eventos en toda la isla y diáspora boricua.
+                </p>
+              </div>
+              <div class="booking-info-item">
+                <div class="booking-info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <p class="booking-info-text">
+                  <strong>Respuesta:</strong> En menos de 48 horas para consultas de booking.
+                </p>
+              </div>
+              <div class="booking-info-item">
+                <div class="booking-info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                  </svg>
+                </div>
+                <p class="booking-info-text">
+                  <strong>Credencial:</strong> Featured en 2 álbumes Benny Benni / Canales Inc · 2026.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="booking-form-wrap reveal reveal-delay-2">
+            <h3 class="booking-form-title">Solicitud de Booking</h3>
+            <p class="booking-form-sub">Todos los campos son necesarios para evaluar tu propuesta.</p>
+
+            <form id="bookingForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="bk-name">Tu Nombre</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="bk-name"
+                    name="name"
+                    placeholder="Nombre completo"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="bk-contact">Email / WhatsApp</label>
+                  <input
+                    class="form-input"
+                    type="text"
+                    id="bk-contact"
+                    name="contact"
+                    placeholder="Email o +1 787..."
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="bk-event">Tipo de Evento</label>
+                  <select class="form-select" id="bk-event" name="event_type" required>
+                    <option value="" disabled selected>Selecciona...</option>
+                    <option value="concierto">Concierto / Show</option>
+                    <option value="festival">Festival</option>
+                    <option value="privado">Evento Privado</option>
+                    <option value="corporativo">Corporativo</option>
+                    <option value="colaboracion">Colaboración Musical</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="bk-date">Fecha Tentativa</label>
+                  <input
+                    class="form-input"
+                    type="date"
+                    id="bk-date"
+                    name="event_date"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="bk-message">Detalles del Evento</label>
+                <textarea
+                  class="form-textarea"
+                  id="bk-message"
+                  name="message"
+                  placeholder="Cuéntanos sobre el evento: lugar, capacidad, presupuesto estimado..."
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary" style="width:100%;display:block;text-align:center;">
+                Enviar Solicitud
+              </button>
+              <p class="form-note">
+                <!-- IRREDUCIBLE: conectar destino email/WhatsApp de Richard antes del deploy -->
+                Tu solicitud será enviada directamente al equipo de Richard Kerry.
+              </p>
+            </form>
+
+            <div class="form-success" id="bookingSuccess">
+              <div class="form-success-icon">◆</div>
+              <p class="form-success-text">Solicitud Recibida</p>
+              <p style="font-family:var(--ff-sans);font-size:0.82rem;color:rgba(232,232,232,0.5);margin-top:0.5rem;">
+                El equipo de Richard Kerry te contactará en menos de 48 horas.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <p class="footer-brand-name">Richard<br />Kerry</p>
+          <p class="footer-brand-era">DELO · Diamantes en lo oscuro ♠️ ◆</p>
+          <p class="footer-brand-desc">
+            Artista urbano independiente de San Juan / Santurce, Puerto Rico. Trap sentimental, despecho boricua, lirismo de barrio.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.instagram.com/rvkerry"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link"
+              aria-label="Instagram @rvkerry"
+            >
+              <!-- Instagram icon -->
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a
+              href="https://open.spotify.com/track/0iV3tL2ZOoUzTaKbtrdi8I"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link"
+              aria-label="Spotify — Ojos Cafe"
+            >
+              <!-- Spotify icon -->
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Navegación</p>
+          <ul class="footer-links" role="list">
+            <li><a href="#musica">Música</a></li>
+            <li><a href="#actividad">Actividad</a></li>
+            <li><a href="#fanclub">Fanclub</a></li>
+            <li><a href="#epk">EPK / Prensa</a></li>
+            <li><a href="#booking">Booking</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Música</p>
+          <ul class="footer-links" role="list">
+            <li>
+              <a href="https://www.youtube.com/results?search_query=Te+Gusta+El+Peligro+Benny+Benni" target="_blank" rel="noopener noreferrer">
+                Te Gusta El Peligro
+              </a>
+            </li>
+            <li>
+              <a href="https://open.spotify.com/track/0iV3tL2ZOoUzTaKbtrdi8I" target="_blank" rel="noopener noreferrer">
+                Ojos Cafe
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/rvkerry" target="_blank" rel="noopener noreferrer">
+                @rvkerry en Instagram
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          &copy; 2026 Richard Kerry · Todos los derechos reservados · San Juan, Puerto Rico
+        </p>
+        <span class="footer-diamond" aria-hidden="true">◆</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    /* ============================================================
+       CUSTOM CURSOR — DEVICE-AWARE (INV-5)
+       Only activates on pointer:fine + hover:hover devices
+       ============================================================ */
+    (function () {
+      var isPointerFine = window.matchMedia('(pointer: fine) and (hover: hover)').matches;
+      if (!isPointerFine) return;
+
+      var dot  = document.getElementById('cursorDot');
+      var ring = document.getElementById('cursorRing');
+      if (!dot || !ring) return;
+
+      var mouseX = 0, mouseY = 0;
+      var ringX  = 0, ringY  = 0;
+      var rafId  = null;
+
+      document.addEventListener('mousemove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.left = mouseX + 'px';
+        dot.style.top  = mouseY + 'px';
+      }, { passive: true });
+
+      function animateRing() {
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+        ring.style.left = ringX + 'px';
+        ring.style.top  = ringY + 'px';
+        rafId = requestAnimationFrame(animateRing);
+      }
+      animateRing();
+
+      // Hover state on interactive elements
+      var interactives = document.querySelectorAll('a, button, input, textarea, select, [role="button"]');
+      interactives.forEach(function (el) {
+        el.addEventListener('mouseenter', function () { ring.classList.add('hover'); });
+        el.addEventListener('mouseleave', function () { ring.classList.remove('hover'); });
+      });
+    })();
+
+    /* ============================================================
+       NAVIGATION — scroll state + hamburger
+       ============================================================ */
+    (function () {
+      var nav = document.getElementById('mainNav');
+      var hamburger = document.getElementById('hamburgerBtn');
+      var mobileMenu = document.getElementById('mobileMenu');
+      var mobileClose = document.getElementById('mobileMenuClose');
+
+      // Scroll state
+      function onScroll() {
+        if (window.scrollY > 60) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Hamburger
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function () {
+          mobileMenu.classList.add('open');
+          hamburger.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+
+      if (mobileClose && mobileMenu) {
+        mobileClose.addEventListener('click', function () {
+          closeMobileMenu();
+        });
+      }
+
+      // Close on backdrop click
+      if (mobileMenu) {
+        mobileMenu.addEventListener('click', function (e) {
+          if (e.target === mobileMenu) closeMobileMenu();
+        });
+      }
+    })();
+
+    function closeMobileMenu() {
+      var mobileMenu = document.getElementById('mobileMenu');
+      var hamburger  = document.getElementById('hamburgerBtn');
+      if (mobileMenu) mobileMenu.classList.remove('open');
+      if (hamburger)  hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    /* ============================================================
+       INTERSECTION OBSERVER — reveal animations
+       ============================================================ */
+    (function () {
+      if (!('IntersectionObserver' in window)) {
+        // Fallback: show all
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          el.classList.add('visible');
+        });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.reveal').forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+
+    /* ============================================================
+       SMOOTH SCROLL — native + polyfill
+       ============================================================ */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        var target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          var navHeight = document.getElementById('mainNav').offsetHeight;
+          var targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ============================================================
+       FANCLUB FORM — client-side handler
+       IRREDUCIBLE: conectar endpoint real antes del deploy
+       ============================================================ */
+    (function () {
+      var form    = document.getElementById('fanclubForm');
+      var success = document.getElementById('fanclubSuccess');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var name     = form.querySelector('[name="name"]').value.trim();
+        var email    = form.querySelector('[name="email"]').value.trim();
+        var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
+
+        if (!name || !email) {
+          form.querySelector('[name="name"]').style.borderColor = !name ? 'var(--c-red)' : '';
+          form.querySelector('[name="email"]').style.borderColor = !email ? 'var(--c-red)' : '';
+          return;
+        }
+
+        // IRREDUCIBLE: reemplazar con fetch() al endpoint real (Mailchimp / ConvertKit / webhook)
+        // Ejemplo:
+        // fetch('https://[ENDPOINT-FANCLUB]', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ name, email, whatsapp })
+        // });
+
+        // Placeholder UX — mostrar success
+        form.style.display = 'none';
+        if (success) success.style.display = 'block';
+      });
+    })();
+
+    /* ============================================================
+       BOOKING FORM — client-side handler
+       IRREDUCIBLE: conectar endpoint real antes del deploy
+       ============================================================ */
+    (function () {
+      var form    = document.getElementById('bookingForm');
+      var success = document.getElementById('bookingSuccess');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var name    = form.querySelector('[name="name"]').value.trim();
+        var contact = form.querySelector('[name="contact"]').value.trim();
+        var event   = form.querySelector('[name="event_type"]').value;
+        var date    = form.querySelector('[name="event_date"]').value;
+        var message = form.querySelector('[name="message"]').value.trim();
+
+        var valid = name && contact && event && date && message;
+        if (!valid) {
+          ['name','contact','event_type','event_date','message'].forEach(function (field) {
+            var el = form.querySelector('[name="' + field + '"]');
+            if (el) el.style.borderColor = !el.value.trim() ? 'var(--c-red)' : '';
+          });
+          return;
+        }
+
+        // IRREDUCIBLE: reemplazar con fetch() al endpoint real (email/WhatsApp de Richard)
+        // Ejemplo:
+        // fetch('https://[ENDPOINT-BOOKING]', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({ name, contact, event_type: event, event_date: date, message })
+        // });
+
+        // Placeholder UX — mostrar success
+        form.style.display = 'none';
+        if (success) success.style.display = 'block';
+      });
+    })();
+
+    /* ============================================================
+       ACTIVE NAV LINK — highlight on scroll
+       ============================================================ */
+    (function () {
+      var sections = document.querySelectorAll('section[id]');
+      var navLinks = document.querySelectorAll('.nav-links a');
+      if (!sections.length || !navLinks.length) return;
+
+      function onScroll() {
+        var scrollY = window.scrollY + 120;
+        sections.forEach(function (section) {
+          var top    = section.offsetTop;
+          var height = section.offsetHeight;
+          var id     = section.getAttribute('id');
+          if (scrollY >= top && scrollY < top + height) {
+            navLinks.forEach(function (link) {
+              link.style.color = link.getAttribute('href') === '#' + id
+                ? 'var(--c-gold)'
+                : '';
+            });
+          }
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
