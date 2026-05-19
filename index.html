@@ -3,34 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Richard Kerry — DELO. Música urbana de Puerto Rico. Trap sentimental, despecho boricua. Featured en FMS vs Canales Inc y Desamores Vol.3 — Benny Benni / Canales Inc, 2026." />
-  <meta name="keywords" content="Richard Kerry, rvkerry, DELO, Puerto Rico, música urbana, trap boricua, despecho urbano, Benny Benni, Canales Inc, San Juan, Santurce" />
+  <meta name="description" content="Richard Kerry — D.E.L.O. Música urbana de Puerto Rico. Trap sentimental, despecho boricua. Featured en FMS vs Canales Inc y Desamores Vol.3 — Benny Benni / Canales Inc, 2026." />
+  <meta name="keywords" content="Richard Kerry, rvkerry, D.E.L.O., D.E.L.O. Puerto Rico, Diamantes En Lo Oscuro, música urbana, trap boricua, despecho urbano, Benny Benni, Canales Inc, San Juan, Santurce" />
   <meta name="author" content="Richard Kerry" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Richard Kerry · DELO — Música Urbana · Puerto Rico" />
-  <meta property="og:description" content="DELO · Diamantes en lo oscuro ♠️💎 — trap sentimental, despecho boricua. Featured en FMS vs Canales Inc y Desamores Vol.3 — Benny Benni / Canales Inc, 2026." />
+  <meta property="og:title" content="Richard Kerry · D.E.L.O. — Música Urbana · Puerto Rico" />
+  <meta property="og:description" content="D.E.L.O. · Diamantes En Lo Oscuro ♠️💎 — trap sentimental, despecho boricua. Featured en FMS vs Canales Inc y Desamores Vol.3 — Benny Benni / Canales Inc, 2026." />
   <meta property="og:url" content="https://rvkerry.com" />
   <meta property="og:locale" content="es_PR" />
   <meta property="og:site_name" content="Richard Kerry" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/mgriveraarroyo/richard/main/assets/avatar-rvkerry.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Richard Kerry · DELO — Música Urbana · Puerto Rico" />
-  <meta name="twitter:description" content="DELO · Diamantes en lo oscuro ♠️💎 — trap sentimental, despecho boricua. Featured en FMS vs Canales Inc y Desamores Vol.3 — Benny Benni / Canales Inc, 2026." />
+  <meta name="twitter:title" content="Richard Kerry · D.E.L.O. — Música Urbana · Puerto Rico" />
+  <meta name="twitter:description" content="D.E.L.O. · Diamantes En Lo Oscuro ♠️💎 — trap sentimental, despecho boricua. Featured en FMS vs Canales Inc y Desamores Vol.3 — Benny Benni / Canales Inc, 2026." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/mgriveraarroyo/richard/main/assets/avatar-rvkerry.jpg" />
 
-  <title>Richard Kerry · DELO — Música Urbana · Puerto Rico</title>
+  <title>Richard Kerry · D.E.L.O. — Música Urbana · Puerto Rico</title>
 
-  <!-- Google Fonts: Playfair Display (display serif editorial) + Inter (sans servicio) -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/mgriveraarroyo/richard/main/assets/avatar-rvkerry.jpg" />
+
+  <!-- Google Fonts: Playfair Display + Inter + Bebas Neue -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
-       DESIGN TOKENS — DELO PALETTE
+       DESIGN TOKENS — D.E.L.O. PALETTE
        ============================================================ */
     :root {
       --c-black:    #0C0C0C;
@@ -95,6 +100,7 @@
 
     /* ============================================================
        CUSTOM CURSOR — DEVICE-AWARE (INV-5)
+       Only activates on pointer:fine + hover:hover devices
        ============================================================ */
     @media (pointer: fine) and (hover: hover) {
       body { cursor: none; }
@@ -114,6 +120,7 @@
         height: 6px;
         background: var(--c-red);
         border-radius: 50%;
+        box-shadow: 0 0 8px rgba(192, 57, 43, 0.8);
       }
 
       .cursor-ring {
@@ -121,13 +128,25 @@
         height: 32px;
         border: 1px solid rgba(212, 169, 106, 0.6);
         border-radius: 50%;
-        transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+        transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       }
 
       .cursor-ring.hover {
         width: 52px;
         height: 52px;
         border-color: var(--c-red);
+        box-shadow: 0 0 16px rgba(192, 57, 43, 0.3);
+      }
+
+      /* Diamond flash on cursor — D.E.L.O. signature */
+      .cursor-ring.hover::after {
+        content: '◆';
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 8px;
+        color: var(--c-gold);
+        opacity: 0.7;
       }
     }
 
@@ -172,9 +191,7 @@
       transition: color var(--transition-fast);
     }
 
-    .nav-logo span {
-      color: var(--c-gold);
-    }
+    .nav-logo span { color: var(--c-gold); }
 
     .nav-links {
       display: flex;
@@ -217,6 +234,8 @@
       gap: 5px;
       cursor: pointer;
       padding: 4px;
+      background: none;
+      border: none;
     }
 
     .nav-hamburger span {
@@ -269,7 +288,7 @@
     }
 
     /* ============================================================
-       HERO — ARTIST HERO (DELO ERA · CINEMATOGRAPHIC)
+       HERO — ARTIST HERO (D.E.L.O. ERA · CINEMATOGRAPHIC · REAL PHOTO + VIDEO)
        ============================================================ */
     #hero {
       position: relative;
@@ -282,86 +301,202 @@
       background: var(--c-black);
     }
 
-    /* Atmospheric background — gel rojo de estudio + atardecer dorado boricua */
-    .hero-atmosphere {
+    /* ---- VIDEO BACKGROUND (motion · loop · muted · playsinline) ---- */
+    .hero-video-bg {
       position: absolute;
       inset: 0;
       z-index: 0;
+      overflow: hidden;
     }
 
-    /* Radial gradient: red studio gel from bottom-left, gold coastal sunset from top-right */
-    .hero-atmosphere::before {
+    .hero-video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.55;
+      filter: saturate(0.7) contrast(1.1);
+    }
+
+    /* Fallback photo layer — shown when video not playing / mobile / reduced-motion */
+    .hero-photo-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: url('https://raw.githubusercontent.com/mgriveraarroyo/richard/main/assets/hero-richard.jpg');
+      background-size: cover;
+      background-position: center 20%;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .hero-photo-bg.active {
+      opacity: 1;
+    }
+
+    /* D.E.L.O. color grade overlay — multiply rojo + viñeta + grano */
+    .hero-grade {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Red multiply layer */
+    .hero-grade::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 15% 85%, rgba(192, 57, 43, 0.28) 0%, transparent 65%),
-        radial-gradient(ellipse 55% 45% at 85% 10%, rgba(212, 169, 106, 0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 50% 50%, rgba(26, 26, 26, 0.6) 0%, transparent 80%),
-        linear-gradient(180deg, #0C0C0C 0%, #0F0A0A 40%, #0C0808 70%, #0C0C0C 100%);
+        radial-gradient(ellipse 80% 70% at 15% 90%, rgba(192, 57, 43, 0.45) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 85% 5%, rgba(212, 169, 106, 0.12) 0%, transparent 55%),
+        linear-gradient(180deg, rgba(12,12,12,0.55) 0%, rgba(12,12,12,0.15) 35%, rgba(12,12,12,0.15) 65%, rgba(12,12,12,0.75) 100%);
+      mix-blend-mode: multiply;
     }
 
-    /* Film grain texture overlay */
-    .hero-atmosphere::after {
+    /* Vignette */
+    .hero-grade::after {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-      background-size: 200px 200px;
-      opacity: 0.4;
-      pointer-events: none;
+      background: radial-gradient(ellipse 85% 85% at 50% 50%, transparent 40%, rgba(12,12,12,0.7) 100%);
     }
 
-    /* Vertical scan lines — cinematic */
+    /* Film grain SVG inline */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      opacity: 0.5;
+    }
+
+    /* Scanlines */
     .hero-scanlines {
       position: absolute;
       inset: 0;
-      z-index: 1;
+      z-index: 2;
       background: repeating-linear-gradient(
         0deg,
         transparent,
         transparent 2px,
-        rgba(0, 0, 0, 0.03) 2px,
-        rgba(0, 0, 0, 0.03) 4px
+        rgba(0, 0, 0, 0.025) 2px,
+        rgba(0, 0, 0, 0.025) 4px
       );
       pointer-events: none;
     }
 
-    /* Diamond motif — DELO ♠️💎 */
-    .hero-diamond-bg {
+    /* ---- DIAMOND LIGHT PLAY — D.E.L.O. IMMERSIVE SIGNATURE ---- */
+    /* CSS @property for animated conic diamond shimmer */
+    @property --diamond-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @property --diamond-pos-x {
+      syntax: '<percentage>';
+      initial-value: 50%;
+      inherits: false;
+    }
+
+    @property --diamond-pos-y {
+      syntax: '<percentage>';
+      initial-value: 50%;
+      inherits: false;
+    }
+
+    .hero-diamond-light {
       position: absolute;
       inset: 0;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      z-index: 3;
       pointer-events: none;
       overflow: hidden;
     }
 
-    .hero-diamond-bg::before {
+    /* Large ghost diamond — breathes */
+    .hero-diamond-light::before {
       content: '◆';
-      font-size: clamp(40vw, 60vw, 80vw);
-      color: rgba(212, 169, 106, 0.025);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(45vw, 65vw, 85vw);
+      color: rgba(212, 169, 106, 0.022);
       line-height: 1;
-      transform: rotate(0deg);
-      animation: diamond-breathe 8s ease-in-out infinite;
+      animation: diamond-breathe 9s ease-in-out infinite;
+      will-change: transform, opacity;
+    }
+
+    /* Shimmer ray — conic gradient rotating */
+    .hero-diamond-light::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from var(--diamond-angle) at 50% 55%,
+        transparent 0deg,
+        rgba(232, 232, 232, 0.018) 15deg,
+        rgba(212, 169, 106, 0.03) 22deg,
+        transparent 38deg,
+        transparent 180deg,
+        rgba(192, 57, 43, 0.012) 195deg,
+        transparent 210deg,
+        transparent 360deg
+      );
+      animation: diamond-spin 18s linear infinite;
+      --diamond-angle: 0deg;
+      will-change: transform;
     }
 
     @keyframes diamond-breathe {
-      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
-      50%       { transform: scale(1.04) rotate(2deg); opacity: 1; }
+      0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0.5; }
+      33%       { transform: translate(-50%, -50%) scale(1.03) rotate(1.5deg); opacity: 0.9; }
+      66%       { transform: translate(-50%, -50%) scale(0.98) rotate(-1deg); opacity: 0.7; }
     }
 
-    /* Era badge — top left */
+    @keyframes diamond-spin {
+      from { --diamond-angle: 0deg; }
+      to   { --diamond-angle: 360deg; }
+    }
+
+    /* ---- CURSOR LIGHT FOLLOW (desktop only) ---- */
+    @media (pointer: fine) and (hover: hover) {
+      .hero-cursor-light {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+        background: radial-gradient(
+          circle 280px at var(--mx, 50%) var(--my, 50%),
+          rgba(232, 232, 232, 0.04) 0%,
+          rgba(212, 169, 106, 0.02) 40%,
+          transparent 70%
+        );
+        transition: background 0.1s ease;
+      }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .hero-cursor-light { display: none !important; }
+    }
+
+    /* ---- ERA BADGE ---- */
     .hero-era-badge {
       position: absolute;
       top: clamp(5.5rem, 12vh, 8rem);
       left: clamp(1.5rem, 5vw, 4rem);
-      z-index: 3;
+      z-index: 5;
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
+      opacity: 0;
+      animation: fade-up 1s ease forwards 0.2s;
     }
 
     .hero-era-badge-line {
@@ -379,13 +514,13 @@
       opacity: 0.8;
     }
 
-    /* Main hero content */
+    /* ---- HERO CONTENT ---- */
     .hero-content {
       position: relative;
-      z-index: 3;
+      z-index: 5;
       text-align: center;
       padding: 0 clamp(1.5rem, 5vw, 3rem);
-      max-width: 900px;
+      max-width: 960px;
     }
 
     .hero-eyebrow {
@@ -410,6 +545,7 @@
       margin-bottom: 0.6rem;
       opacity: 0;
       animation: fade-up 1s ease forwards 0.5s;
+      text-shadow: 0 2px 40px rgba(0,0,0,0.6);
     }
 
     .hero-name-accent {
@@ -423,29 +559,45 @@
       font-family: var(--ff-display);
       font-size: clamp(2.5rem, 8vw, 7rem);
       line-height: 0.9;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--c-red);
       text-transform: uppercase;
       margin-bottom: 1.5rem;
       opacity: 0;
       animation: fade-up 1s ease forwards 0.7s;
+      position: relative;
+      display: inline-block;
     }
 
-    /* Red underline accent */
+    /* Diamond shimmer on era title */
+    .hero-era-title::before {
+      content: '';
+      position: absolute;
+      inset: -4px -8px;
+      background: linear-gradient(135deg, transparent 30%, rgba(232,232,232,0.06) 50%, transparent 70%);
+      background-size: 200% 200%;
+      animation: title-shimmer 4s ease-in-out infinite;
+    }
+
     .hero-era-title::after {
       content: '';
       display: block;
       width: 60px;
       height: 2px;
-      background: var(--c-gold);
+      background: linear-gradient(90deg, var(--c-gold), transparent);
       margin: 0.8rem auto 0;
+    }
+
+    @keyframes title-shimmer {
+      0%, 100% { background-position: 200% 200%; }
+      50%       { background-position: 0% 0%; }
     }
 
     .hero-tagline {
       font-family: var(--ff-serif);
       font-style: italic;
       font-size: clamp(0.9rem, 2.2vw, 1.2rem);
-      color: rgba(232, 232, 232, 0.55);
+      color: rgba(232, 232, 232, 0.6);
       letter-spacing: 0.04em;
       margin-bottom: 2.8rem;
       opacity: 0;
@@ -474,13 +626,14 @@
       transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .btn-primary::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 60%);
       opacity: 0;
       transition: opacity var(--transition-fast);
     }
@@ -504,6 +657,7 @@
       border: 1px solid rgba(212, 169, 106, 0.4);
       padding: 0.9rem 2.2rem;
       transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+      cursor: pointer;
     }
 
     .btn-secondary:hover {
@@ -518,7 +672,7 @@
       bottom: 2.5rem;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 3;
+      z-index: 5;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -622,6 +776,134 @@
     .reveal-delay-5 { transition-delay: 0.5s; }
 
     /* ============================================================
+       EPK HEADER PHOTO — art-delo-cover.jpg (pasamontañas · era D.E.L.O.)
+       ============================================================ */
+    .epk-hero-strip {
+      width: 100%;
+      height: clamp(220px, 35vw, 420px);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 0;
+    }
+
+    .epk-hero-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: saturate(0.6) contrast(1.15);
+      transition: transform 0.8s ease;
+    }
+
+    .epk-hero-strip:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Gold grade overlay on EPK strip */
+    .epk-hero-strip::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(12,12,12,0.3) 0%, transparent 40%, transparent 60%, rgba(12,12,12,0.6) 100%),
+        radial-gradient(ellipse 60% 80% at 85% 50%, rgba(212,169,106,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .epk-hero-strip-label {
+      position: absolute;
+      bottom: 1.5rem;
+      left: clamp(1.5rem, 5vw, 3rem);
+      z-index: 2;
+      font-family: var(--ff-sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(212, 169, 106, 0.7);
+    }
+
+    /* ============================================================
+       PORTRAIT PHOTO — portrait-richard.jpg (EPK / bio)
+       ============================================================ */
+    .epk-portrait-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      max-width: 320px;
+    }
+
+    .epk-portrait-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(0.5) contrast(1.1);
+      transition: filter 0.5s ease, transform 0.5s ease;
+    }
+
+    .epk-portrait-wrap:hover img {
+      filter: saturate(0.7) contrast(1.1);
+      transform: scale(1.02);
+    }
+
+    /* Red accent frame */
+    .epk-portrait-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 60%;
+      background: linear-gradient(180deg, var(--c-red), transparent);
+      z-index: 2;
+    }
+
+    .epk-portrait-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--c-gold));
+      z-index: 2;
+    }
+
+    /* ============================================================
+       GALLERY CINEMATIC — gallery-3-noche-bn.jpg
+       ============================================================ */
+    .gallery-strip {
+      width: 100%;
+      height: clamp(180px, 28vw, 340px);
+      overflow: hidden;
+      position: relative;
+      margin-top: 3rem;
+    }
+
+    .gallery-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      filter: grayscale(1) contrast(1.2) brightness(0.75);
+      transition: transform 1.2s ease, filter 0.8s ease;
+    }
+
+    .gallery-strip:hover img {
+      transform: scale(1.03);
+      filter: grayscale(0.85) contrast(1.2) brightness(0.8);
+    }
+
+    .gallery-strip::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(12,12,12,0.5) 0%, transparent 30%, transparent 70%, rgba(12,12,12,0.5) 100%),
+        linear-gradient(180deg, rgba(12,12,12,0.2) 0%, transparent 20%, transparent 80%, rgba(12,12,12,0.4) 100%);
+      pointer-events: none;
+    }
+
+    /* ============================================================
        SMARTLINK HUB
        ============================================================ */
     #musica {
@@ -636,12 +918,10 @@
     }
 
     @media (max-width: 767px) {
-      .smartlink-grid {
-        grid-template-columns: 1fr;
-      }
+      .smartlink-grid { grid-template-columns: 1fr; }
     }
 
-    /* Anchor track — Te Gusta El Peligro — featured card */
+    /* Anchor track — Te Gusta El Peligro */
     .track-anchor {
       grid-column: 1 / -1;
       background: var(--c-mid);
@@ -660,9 +940,7 @@
       background: linear-gradient(90deg, var(--c-red), var(--c-gold));
     }
 
-    .track-anchor:hover {
-      border-color: rgba(192, 57, 43, 0.4);
-    }
+    .track-anchor:hover { border-color: rgba(192, 57, 43, 0.4); }
 
     .track-anchor-inner {
       display: flex;
@@ -683,10 +961,7 @@
       white-space: nowrap;
     }
 
-    .track-anchor-info {
-      flex: 1;
-      min-width: 200px;
-    }
+    .track-anchor-info { flex: 1; min-width: 200px; }
 
     .track-anchor-title {
       font-family: var(--ff-display);
@@ -705,10 +980,7 @@
       letter-spacing: 0.05em;
     }
 
-    .track-anchor-meta strong {
-      color: var(--c-gold);
-      font-weight: 500;
-    }
+    .track-anchor-meta strong { color: var(--c-gold); font-weight: 500; }
 
     .track-anchor-stats {
       display: flex;
@@ -717,11 +989,7 @@
       margin-top: 0.8rem;
     }
 
-    .track-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
+    .track-stat { display: flex; flex-direction: column; gap: 0.1rem; }
 
     .track-stat-num {
       font-family: var(--ff-display);
@@ -767,11 +1035,7 @@
       background: rgba(232, 232, 232, 0.04);
     }
 
-    .platform-link svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
+    .platform-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     /* Spotify embed card */
     .track-embed-card {
@@ -781,9 +1045,7 @@
       transition: border-color var(--transition-fast);
     }
 
-    .track-embed-card:hover {
-      border-color: rgba(212, 169, 106, 0.3);
-    }
+    .track-embed-card:hover { border-color: rgba(212, 169, 106, 0.3); }
 
     .track-embed-label {
       font-family: var(--ff-sans);
@@ -795,10 +1057,7 @@
       margin-bottom: 1rem;
     }
 
-    .track-embed-card iframe {
-      border-radius: 0;
-      display: block;
-    }
+    .track-embed-card iframe { border-radius: 0; display: block; }
 
     /* Credentials card */
     .credentials-card {
@@ -812,8 +1071,7 @@
     .credentials-card::after {
       content: '◆';
       position: absolute;
-      bottom: -1rem;
-      right: 1rem;
+      bottom: -1rem; right: 1rem;
       font-size: 5rem;
       color: rgba(212, 169, 106, 0.04);
       line-height: 1;
@@ -841,8 +1099,7 @@
     .credential-item:last-child { border-bottom: none; }
 
     .credential-dot {
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       background: var(--c-red);
       border-radius: 50%;
       flex-shrink: 0;
@@ -856,18 +1113,11 @@
       line-height: 1.5;
     }
 
-    .credential-text strong {
-      color: var(--c-silver);
-      font-weight: 500;
-    }
-
-    .credential-text em {
-      color: var(--c-gold);
-      font-style: normal;
-    }
+    .credential-text strong { color: var(--c-silver); font-weight: 500; }
+    .credential-text em { color: var(--c-gold); font-style: normal; }
 
     /* ============================================================
-       TOUR / ACTIVIDAD (sin fechas reales — INV-3)
+       TOUR / ACTIVIDAD
        ============================================================ */
     #actividad {
       background: var(--c-black);
@@ -936,10 +1186,7 @@
       letter-spacing: 0.04em;
     }
 
-    .presencia-meta strong {
-      color: var(--c-gold);
-      font-weight: 500;
-    }
+    .presencia-meta strong { color: var(--c-gold); font-weight: 500; }
 
     .actividad-cta-block {
       background: var(--c-mid);
@@ -986,19 +1233,20 @@
       overflow: hidden;
     }
 
+    /* D.E.L.O. watermark — acrónimo con puntos en CSS decorativo (no copy visible) */
     #fanclub::before {
-      content: 'DELO';
+      content: '◆';
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-family: var(--ff-display);
-      font-size: clamp(15vw, 25vw, 30vw);
-      color: rgba(192, 57, 43, 0.04);
+      font-size: clamp(20vw, 35vw, 45vw);
+      color: rgba(192, 57, 43, 0.03);
       letter-spacing: 0.1em;
       pointer-events: none;
       white-space: nowrap;
       line-height: 1;
+      animation: diamond-breathe 12s ease-in-out infinite;
     }
 
     .fanclub-layout {
@@ -1012,10 +1260,7 @@
       .fanclub-layout { grid-template-columns: 1fr; }
     }
 
-    .fanclub-copy {
-      position: relative;
-      z-index: 1;
-    }
+    .fanclub-copy { position: relative; z-index: 1; }
 
     .fanclub-headline {
       font-family: var(--ff-display);
@@ -1038,17 +1283,9 @@
       margin-bottom: 1.5rem;
     }
 
-    .fanclub-proof {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
+    .fanclub-proof { display: flex; gap: 2rem; flex-wrap: wrap; }
 
-    .fanclub-proof-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
+    .fanclub-proof-item { display: flex; flex-direction: column; gap: 0.1rem; }
 
     .fanclub-proof-num {
       font-family: var(--ff-display);
@@ -1091,9 +1328,7 @@
       line-height: 1.5;
     }
 
-    .form-group {
-      margin-bottom: 1rem;
-    }
+    .form-group { margin-bottom: 1rem; }
 
     .form-label {
       display: block;
@@ -1130,19 +1365,11 @@
     }
 
     .form-input::placeholder,
-    .form-textarea::placeholder {
-      color: rgba(232, 232, 232, 0.2);
-    }
+    .form-textarea::placeholder { color: rgba(232, 232, 232, 0.2); }
 
-    .form-textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
+    .form-textarea { resize: vertical; min-height: 100px; }
 
-    .form-select option {
-      background: var(--c-dark);
-      color: var(--c-silver);
-    }
+    .form-select option { background: var(--c-dark); color: var(--c-silver); }
 
     .form-row {
       display: grid;
@@ -1162,6 +1389,14 @@
       line-height: 1.5;
     }
 
+    .form-error {
+      font-family: var(--ff-sans);
+      font-size: 0.72rem;
+      color: var(--c-red);
+      margin-top: 0.8rem;
+      display: none;
+    }
+
     .form-success {
       display: none;
       text-align: center;
@@ -1172,6 +1407,7 @@
       font-size: 2rem;
       color: var(--c-gold);
       margin-bottom: 0.8rem;
+      animation: diamond-breathe 3s ease-in-out infinite;
     }
 
     .form-success-text {
@@ -1180,6 +1416,16 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--c-silver);
+    }
+
+    .form-loading {
+      display: none;
+      text-align: center;
+      padding: 1rem;
+      font-family: var(--ff-sans);
+      font-size: 0.78rem;
+      color: rgba(232,232,232,0.5);
+      letter-spacing: 0.1em;
     }
 
     /* ============================================================
@@ -1220,8 +1466,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0;
-      width: 3px;
-      height: 100%;
+      width: 3px; height: 100%;
       background: linear-gradient(180deg, var(--c-red), transparent);
     }
 
@@ -1232,9 +1477,7 @@
       color: rgba(232, 232, 232, 0.8);
     }
 
-    .epk-bio-text p + p {
-      margin-top: 1rem;
-    }
+    .epk-bio-text p + p { margin-top: 1rem; }
 
     .epk-metrics {
       display: grid;
@@ -1289,11 +1532,7 @@
       margin-bottom: 1rem;
     }
 
-    .epk-tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .epk-tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     .epk-tag {
       font-family: var(--ff-sans);
@@ -1304,11 +1543,7 @@
       padding: 0.3rem 0.7rem;
     }
 
-    .epk-links-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .epk-links-list { display: flex; flex-direction: column; gap: 0.5rem; }
 
     .epk-link-item {
       display: flex;
@@ -1326,18 +1561,13 @@
     .epk-link-item:hover { color: var(--c-gold); }
 
     .epk-link-dot {
-      width: 4px;
-      height: 4px;
+      width: 4px; height: 4px;
       background: var(--c-red);
       border-radius: 50%;
       flex-shrink: 0;
     }
 
-    .epk-contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
+    .epk-contact-info { display: flex; flex-direction: column; gap: 0.6rem; }
 
     .epk-contact-item {
       font-family: var(--ff-sans);
@@ -1345,10 +1575,7 @@
       color: rgba(232, 232, 232, 0.6);
     }
 
-    .epk-contact-item strong {
-      color: var(--c-silver);
-      font-weight: 500;
-    }
+    .epk-contact-item strong { color: var(--c-silver); font-weight: 500; }
 
     .epk-download-btn {
       display: inline-flex;
@@ -1389,13 +1616,11 @@
       background: linear-gradient(90deg, transparent, var(--c-border), transparent);
     }
 
-    /* Red atmospheric accent */
     #booking::after {
       content: '';
       position: absolute;
       bottom: 0; right: 0;
-      width: 40%;
-      height: 60%;
+      width: 40%; height: 60%;
       background: radial-gradient(ellipse at 100% 100%, rgba(192, 57, 43, 0.08) 0%, transparent 70%);
       pointer-events: none;
     }
@@ -1411,10 +1636,7 @@
       .booking-layout { grid-template-columns: 1fr; }
     }
 
-    .booking-copy {
-      position: relative;
-      z-index: 1;
-    }
+    .booking-copy { position: relative; z-index: 1; }
 
     .booking-headline {
       font-family: var(--ff-display);
@@ -1436,21 +1658,12 @@
       margin-bottom: 2rem;
     }
 
-    .booking-info-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
+    .booking-info-list { display: flex; flex-direction: column; gap: 0.8rem; }
 
-    .booking-info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-    }
+    .booking-info-item { display: flex; align-items: flex-start; gap: 0.8rem; }
 
     .booking-info-icon {
-      width: 20px;
-      height: 20px;
+      width: 20px; height: 20px;
       background: rgba(192, 57, 43, 0.15);
       border: 1px solid rgba(192, 57, 43, 0.3);
       display: flex;
@@ -1460,11 +1673,7 @@
       margin-top: 0.1rem;
     }
 
-    .booking-info-icon svg {
-      width: 10px;
-      height: 10px;
-      color: var(--c-red);
-    }
+    .booking-info-icon svg { width: 10px; height: 10px; color: var(--c-red); }
 
     .booking-info-text {
       font-family: var(--ff-sans);
@@ -1473,10 +1682,7 @@
       line-height: 1.5;
     }
 
-    .booking-info-text strong {
-      color: var(--c-silver);
-      font-weight: 500;
-    }
+    .booking-info-text strong { color: var(--c-silver); font-weight: 500; }
 
     .booking-form-wrap {
       position: relative;
@@ -1549,15 +1755,10 @@
       max-width: 280px;
     }
 
-    .footer-social {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-    }
+    .footer-social { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
 
     .footer-social-link {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       border: 1px solid rgba(232, 232, 232, 0.12);
       display: flex;
       align-items: center;
@@ -1570,11 +1771,7 @@
       background: rgba(192, 57, 43, 0.1);
     }
 
-    .footer-social-link svg {
-      width: 14px;
-      height: 14px;
-      color: rgba(232, 232, 232, 0.6);
-    }
+    .footer-social-link svg { width: 14px; height: 14px; color: rgba(232, 232, 232, 0.6); }
 
     .footer-col-title {
       font-family: var(--ff-sans);
@@ -1628,14 +1825,8 @@
        ANIMATIONS
        ============================================================ */
     @keyframes fade-up {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fade-in {
@@ -1644,14 +1835,25 @@
     }
 
     /* ============================================================
+       REDUCED MOTION — kill all animations
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-video-bg video { display: none; }
+      .hero-photo-bg { opacity: 1 !important; }
+    }
+
+    /* ============================================================
        UTILITY
        ============================================================ */
     .sr-only {
       position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
       overflow: hidden;
       clip: rect(0,0,0,0);
       white-space: nowrap;
@@ -1665,21 +1867,13 @@
        RESPONSIVE ADJUSTMENTS
        ============================================================ */
     @media (max-width: 480px) {
-      .hero-name {
-        font-size: clamp(3.5rem, 18vw, 6rem);
-      }
-      .hero-era-title {
-        font-size: clamp(2rem, 10vw, 3.5rem);
-      }
+      .hero-name { font-size: clamp(3.5rem, 18vw, 6rem); }
+      .hero-era-title { font-size: clamp(2rem, 10vw, 3.5rem); }
     }
 
     @media (min-width: 1200px) {
-      .smartlink-grid {
-        grid-template-columns: 1.2fr 0.8fr;
-      }
-      .track-anchor {
-        grid-column: 1 / -1;
-      }
+      .smartlink-grid { grid-template-columns: 1.2fr 0.8fr; }
+      .track-anchor { grid-column: 1 / -1; }
     }
 
     /* ============================================================
@@ -1689,6 +1883,29 @@
       .nav, .hero-scroll, .cursor-dot, .cursor-ring, .mobile-menu { display: none !important; }
       #hero { min-height: auto; padding: 4rem 0 2rem; }
       body { background: white; color: black; }
+    }
+
+    /* ============================================================
+       SCROLL-DRIVEN AMBIENT LIGHT (CSS native · no JS · desktop)
+       ============================================================ */
+    @supports (animation-timeline: scroll()) {
+      @media (pointer: fine) and (hover: hover) {
+        .section-ambient {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 0;
+          background: radial-gradient(ellipse 50% 40% at 50% 100%, rgba(192,57,43,0.06) 0%, transparent 70%);
+          animation: ambient-scroll linear both;
+          animation-timeline: view();
+          animation-range: entry 0% cover 50%;
+        }
+
+        @keyframes ambient-scroll {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+      }
     }
   </style>
 </head>
@@ -1712,7 +1929,7 @@
   <!-- Navigation -->
   <header>
     <nav class="nav" id="mainNav" aria-label="Navegación principal">
-      <a href="#hero" class="nav-logo" aria-label="Richard Kerry — inicio">
+      <a href="#hero" class="nav-logo" aria-label="Richard Kerry — D.E.L.O. — inicio">
         RICHARD <span>KERRY</span>
       </a>
       <ul class="nav-links" role="list">
@@ -1733,13 +1950,49 @@
   <main>
 
     <!-- ============================================================
-         SECTION 1 · ARTIST HERO
+         SECTION 1 · ARTIST HERO — D.E.L.O. ERA
+         Video bg: hero-motion-baddy.mp4 · Poster/fallback: hero-richard.jpg
          ============================================================ -->
-    <section id="hero" aria-label="Richard Kerry — DELO">
+    <section id="hero" aria-label="Richard Kerry — D.E.L.O. — Diamantes En Lo Oscuro">
 
-      <div class="hero-atmosphere" aria-hidden="true"></div>
+      <!-- Video background (motion · loop · muted · playsinline · desktop/reduced-motion aware) -->
+      <div class="hero-video-bg" id="heroVideoBg" aria-hidden="true">
+        <video
+          id="heroBgVideo"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="https://raw.githubusercontent.com/mgriveraarroyo/richard/main/assets/hero-richard.jpg"
+          aria-hidden="true"
+        >
+          <source src="https://raw.githubusercontent.com/mgriveraarroyo/richard/main/assets/hero-motion-baddy.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- Photo fallback (shown on mobile / reduced-motion / video load fail) -->
+      <div
+        class="hero-photo-bg"
+        id="heroPhotoBg"
+        role="img"
+        aria-label="Richard Kerry — gel rojo de estudio, era D.E.L.O."
+      ></div>
+
+      <!-- D.E.L.O. color grade + vignette -->
+      <div class="hero-grade" aria-hidden="true"></div>
+
+      <!-- Film grain -->
+      <div class="hero-grain" aria-hidden="true"></div>
+
+      <!-- Scanlines -->
       <div class="hero-scanlines" aria-hidden="true"></div>
-      <div class="hero-diamond-bg" aria-hidden="true"></div>
+
+      <!-- Diamond light play — immersive D.E.L.O. signature -->
+      <div class="hero-diamond-light" aria-hidden="true"></div>
+
+      <!-- Cursor light follow (desktop only) -->
+      <div class="hero-cursor-light" id="heroCursorLight" aria-hidden="true"></div>
 
       <!-- Era badge -->
       <div class="hero-era-badge" aria-hidden="true">
@@ -1748,6 +2001,7 @@
         <span class="hero-era-badge-symbol">♠️ ◆</span>
       </div>
 
+      <!-- Main hero content -->
       <div class="hero-content">
         <p class="hero-eyebrow">Artista Urbano Independiente · Puerto Rico</p>
 
@@ -1756,15 +2010,15 @@
           <span class="hero-name-accent">Kerry</span>
         </h1>
 
-        <p class="hero-era-title">D.E.L.O.</p>
+        <p class="hero-era-title" aria-label="D.E.L.O. — Diamantes En Lo Oscuro">D.E.L.O.</p>
 
         <p class="hero-tagline">
-          Diamantes en lo oscuro &nbsp;♠️&nbsp;💎&nbsp; — despecho boricua, lirismo de barrio
+          Diamantes En Lo Oscuro &nbsp;♠️&nbsp;💎&nbsp; — despecho boricua, lirismo de barrio
         </p>
 
         <div class="hero-ctas">
-          <a href="#musica" class="btn-primary">Escucha Ahora</a>
-          <a href="#booking" class="btn-secondary">Booking</a>
+          <a href="#musica" class="btn-primary" aria-label="Escuchar música de Richard Kerry">Escucha Ahora</a>
+          <a href="#booking" class="btn-secondary" aria-label="Solicitar booking de Richard Kerry">Booking</a>
         </div>
       </div>
 
@@ -1778,9 +2032,9 @@
     <div class="section-divider" aria-hidden="true"></div>
 
     <!-- ============================================================
-         SECTION 2 · SMARTLINK HUB
+         SECTION 2 · SMARTLINK HUB — Catálogo + Spotify embed
          ============================================================ -->
-    <section id="musica" class="section" aria-label="Música de Richard Kerry">
+    <section id="musica" class="section" aria-label="Música de Richard Kerry — D.E.L.O.">
       <div class="container">
 
         <p class="section-label reveal">Catálogo</p>
@@ -1791,7 +2045,7 @@
         <div class="smartlink-grid">
 
           <!-- Track ancla de mercado: Te Gusta El Peligro -->
-          <article class="track-anchor reveal reveal-delay-2" aria-label="Te Gusta El Peligro — track ancla de mercado">
+          <article class="track-anchor reveal reveal-delay-2" aria-label="Te Gusta El Peligro — track ancla de mercado D.E.L.O.">
             <div class="track-anchor-inner">
 
               <div class="track-anchor-info">
@@ -1825,7 +2079,6 @@
                   class="platform-link"
                   aria-label="Escuchar Te Gusta El Peligro en YouTube"
                 >
-                  <!-- YouTube icon -->
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                   </svg>
@@ -1838,7 +2091,6 @@
                   class="platform-link"
                   aria-label="Buscar Te Gusta El Peligro en Spotify"
                 >
-                  <!-- Spotify icon -->
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                   </svg>
@@ -1851,9 +2103,8 @@
                   class="platform-link"
                   aria-label="Buscar Te Gusta El Peligro en Apple Music"
                 >
-                  <!-- Apple Music icon -->
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 0 0-1.877-.726 10.496 10.496 0 0 0-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208a5.01 5.01 0 0 0-.35 1.48 23.65 23.65 0 0 0-.123 2.256v9.112c.006.403.02.806.05 1.208.053.86.165 1.71.46 2.528.54 1.504 1.59 2.534 3.103 3.07.637.226 1.296.33 1.97.375.667.046 1.334.06 2.003.06h8.97c.668 0 1.334-.014 2.003-.06.674-.044 1.332-.15 1.97-.375 1.514-.536 2.563-1.566 3.103-3.07.295-.818.407-1.668.46-2.528.03-.402.044-.805.05-1.208V8.124c0-.668-.014-1.334-.06-2.003zm-6.498 3.876l-5.37 3.1c-.14.082-.28.123-.42.123-.14 0-.28-.04-.42-.123l-5.37-3.1c-.28-.162-.42-.405-.42-.69s.14-.527.42-.69l5.37-3.1c.28-.162.56-.162.84 0l5.37 3.1c.28.163.42.405.42.69s-.14.528-.42.69z"/>
+                    <path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 0 0-1.877-.726 10.496 10.496 0 0 0-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208A4.98 4.98 0 0 0 .05 5.08a63.975 63.975 0 0 0-.05 1.528v11.78c.003.5.015 1 .05 1.5.06.85.23 1.68.58 2.46.68 1.51 1.83 2.52 3.42 3.01.57.18 1.16.27 1.75.31.51.04 1.02.05 1.53.05h11.78c.5 0 1-.01 1.5-.05.85-.06 1.68-.23 2.46-.58 1.51-.68 2.52-1.83 3.01-3.42.18-.57.27-1.16.31-1.75.04-.51.05-1.02.05-1.53V7.61c0-.5-.01-1-.05-1.49zm-6.985 2.735v5.56c0 .27-.01.54-.07.8a2.5 2.5 0 0 1-1.96 1.96c-.27.06-.54.07-.8.07-.88 0-1.62-.63-1.74-1.5a1.75 1.75 0 0 1 1.38-1.98c.27-.06.54-.07.8-.07.24 0 .48.03.7.1V7.62l-4.5 1.29v6.3c0 .27-.01.54-.07.8a2.5 2.5 0 0 1-1.96 1.96c-.27.06-.54.07-.8.07-.88 0-1.62-.63-1.74-1.5a1.75 1.75 0 0 1 1.38-1.98c.27-.06.54-.07.8-.07.24 0 .48.03.7.1V7.44c0-.37.26-.7.62-.78l5.5-1.57c.44-.13.88.2.88.66z"/>
                   </svg>
                   Apple Music
                 </a>
@@ -1862,9 +2113,9 @@
             </div>
           </article>
 
-          <!-- Spotify embed: Ojos Cafe (track verificado del bio) -->
-          <article class="track-embed-card reveal reveal-delay-3" aria-label="Ojos Cafe — Benny Benni, Richard Kerry">
-            <p class="track-embed-label">Escucha · Ojos Cafe</p>
+          <!-- Spotify embed: Ojos Cafe ft. Benny Benni (track del bio · ID verificado) -->
+          <div class="track-embed-card reveal reveal-delay-3" aria-label="Ojos Cafe — Benny Benni, Richard Kerry — Spotify">
+            <p class="track-embed-label">Escuchar Ahora · Spotify</p>
             <iframe
               src="https://open.spotify.com/embed/track/0iV3tL2ZOoUzTaKbtrdi8I?utm_source=generator&theme=0"
               width="100%"
@@ -1873,28 +2124,28 @@
               allowfullscreen=""
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              title="Ojos Cafe — Benny Benni, Richard Kerry · Spotify"
+              title="Ojos Cafe — Benny Benni, Richard Kerry"
             ></iframe>
-            <p style="font-family:var(--ff-sans);font-size:0.7rem;color:rgba(232,232,232,0.35);margin-top:0.8rem;letter-spacing:0.04em;">
-              Ojos Cafe · Benny Benni, Richard Kerry
+            <p style="font-family:var(--ff-sans);font-size:0.7rem;color:rgba(232,232,232,0.35);margin-top:0.8rem;letter-spacing:0.05em;">
+              Ojos Cafe · Benny Benni, Richard Kerry · D.E.L.O.
             </p>
-          </article>
+          </div>
 
-          <!-- Credenciales -->
-          <article class="credentials-card reveal reveal-delay-4" aria-label="Credenciales y colaboraciones">
+          <!-- Credentials card -->
+          <article class="credentials-card reveal reveal-delay-4" aria-label="Credenciales D.E.L.O. — Richard Kerry">
             <p class="credentials-label">Credenciales · 2026</p>
 
             <div class="credential-item">
               <div class="credential-dot"></div>
               <p class="credential-text">
-                Featured en <strong><em>FMS vs Canales Inc</em></strong> — Benny Benni / Serving Sounds / Canales Inc · 2026
+                Featured en <em>FMS vs Canales Inc</em> — <strong>Benny Benni / Serving Sounds · Canales Inc</strong>, 2026
               </p>
             </div>
 
             <div class="credential-item">
               <div class="credential-dot"></div>
               <p class="credential-text">
-                Featured en <strong><em>Desamores Vol.3</em></strong> — Benny Benni / Serving Sounds / Canales Inc · 2026
+                Featured en <em>Desamores Vol.3</em> — <strong>Benny Benni / Serving Sounds · Canales Inc</strong>, 2026
               </p>
             </div>
 
@@ -1924,7 +2175,7 @@
     <!-- ============================================================
          SECTION 3 · ACTIVIDAD / TOUR CALENDAR (INV-3: sin fechas inventadas)
          ============================================================ -->
-    <section id="actividad" class="section" aria-label="Actividad y presencia de Richard Kerry">
+    <section id="actividad" class="section" aria-label="Actividad y presencia de Richard Kerry — D.E.L.O.">
       <div class="container">
 
         <p class="section-label reveal">Presencia</p>
@@ -1974,15 +2225,24 @@
 
         </div>
 
+        <!-- Gallery cinematic strip — gallery-3-noche-bn.jpg -->
+        <div class="gallery-strip reveal reveal-delay-4" aria-label="Imagen cinematográfica nocturna — D.E.L.O.">
+          <img
+            src="https://raw.githubusercontent.com/mgriveraarroyo/richard/main/assets/gallery-3-noche-bn.jpg"
+            alt="Noche urbana cinematográfica — Richard Kerry D.E.L.O."
+            loading="lazy"
+          />
+        </div>
+
       </div>
     </section>
 
     <div class="section-divider" aria-hidden="true"></div>
 
     <!-- ============================================================
-         SECTION 4 · FAN CLUB CAPTURE
+         SECTION 4 · FAN CLUB CAPTURE — Web3Forms real POST
          ============================================================ -->
-    <section id="fanclub" class="section" aria-label="Fanclub de Richard Kerry — DELO">
+    <section id="fanclub" class="section" aria-label="Fanclub de Richard Kerry — D.E.L.O. — Diamantes En Lo Oscuro">
       <div class="container">
 
         <div class="fanclub-layout">
@@ -1990,10 +2250,10 @@
           <div class="fanclub-copy reveal">
             <p class="section-label">Comunidad</p>
             <h2 class="fanclub-headline">
-              Sé Parte<br />del <span>DELO</span>
+              Sé Parte<br />del <span>D.E.L.O.</span>
             </h2>
             <p class="fanclub-subhead">
-              Sé el primero en saber cuándo suelta DELO. Acceso directo a Richard Kerry — sin algoritmos, sin intermediarios.
+              Sé el primero en saber cuándo suelta D.E.L.O. Acceso directo a Richard Kerry — sin algoritmos, sin intermediarios.
             </p>
             <div class="fanclub-proof">
               <div class="fanclub-proof-item">
@@ -2018,13 +2278,16 @@
             </p>
 
             <form id="fanclubForm" novalidate>
+              <!-- Honeypot anti-spam (Web3Forms estándar) -->
+              <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+
               <div class="form-group">
                 <label class="form-label" for="fc-name">Nombre</label>
                 <input
                   class="form-input"
                   type="text"
                   id="fc-name"
-                  name="name"
+                  name="nombre"
                   placeholder="Tu nombre"
                   autocomplete="given-name"
                   required
@@ -2058,14 +2321,16 @@
               <button type="submit" class="btn-primary" style="width:100%;justify-content:center;display:block;text-align:center;">
                 Quiero Acceso Directo
               </button>
+              <div class="form-loading" id="fanclubLoading">Enviando... ◆</div>
+              <div class="form-error" id="fanclubError">Hubo un error al enviar. Inténtalo de nuevo o escríbenos por Instagram @rvkerry.</div>
               <p class="form-note">
                 Tu información es de Richard Kerry — nunca se vende ni comparte con terceros. Puedes darte de baja cuando quieras.
               </p>
             </form>
 
-            <div class="form-success" id="fanclubSuccess">
+            <div class="form-success" id="fanclubSuccess" aria-live="polite">
               <div class="form-success-icon">◆</div>
-              <p class="form-success-text">¡Bienvenido al DELO!</p>
+              <p class="form-success-text">¡Bienvenido al D.E.L.O.!</p>
               <p style="font-family:var(--ff-sans);font-size:0.82rem;color:rgba(232,232,232,0.5);margin-top:0.5rem;">
                 Pronto recibirás noticias directas de Richard Kerry.
               </p>
@@ -2081,9 +2346,9 @@
     <div class="section-divider" aria-hidden="true"></div>
 
     <!-- ============================================================
-         SECTION 5 · EPK PAGE
+         SECTION 5 · EPK PAGE — con foto real portrait-richard.jpg + art-delo-cover.jpg
          ============================================================ -->
-    <section id="epk" class="section" aria-label="EPK — Electronic Press Kit de Richard Kerry">
+    <section id="epk" class="section" aria-label="EPK — Electronic Press Kit de Richard Kerry — D.E.L.O.">
       <div class="container">
 
         <p class="section-label reveal">Press Kit</p>
@@ -2094,10 +2359,41 @@
           Shareable por URL · Para promotores, medios y booking
         </p>
 
+      </div>
+
+      <!-- EPK header strip — art-delo-cover.jpg (pasamontañas · atardecer dorado · D.E.L.O. misterio) -->
+      <div class="epk-hero-strip reveal" aria-label="Richard Kerry — era D.E.L.O. — pasamontañas, atardecer dorado PR">
+        <img
+          src="https://raw.githubusercontent.com/mgriveraarroyo/richard/main/assets/art-delo-cover.jpg"
+          alt="Richard Kerry — era D.E.L.O. — pasamontañas negro, atardecer dorado costero Puerto Rico, destello de reloj"
+          loading="lazy"
+        />
+        <span class="epk-hero-strip-label">D.E.L.O. · Diamantes En Lo Oscuro · Era 2026</span>
+      </div>
+
+      <div class="container">
+
         <div class="epk-layout">
 
-          <!-- Bio + métricas -->
+          <!-- Bio + métricas + portrait -->
           <div class="epk-bio reveal reveal-delay-2">
+
+            <!-- Portrait photo — portrait-richard.jpg -->
+            <div style="display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap;margin-bottom:1.5rem;">
+              <div class="epk-portrait-wrap" aria-label="Retrato de prensa — Richard Kerry">
+                <img
+                  src="https://raw.githubusercontent.com/mgriveraarroyo/richard/main/assets/portrait-richard.jpg"
+                  alt="Richard Kerry — retrato de prensa, cuello alto negro, cadena de oro, mirada directa — D.E.L.O."
+                  loading="lazy"
+                />
+              </div>
+              <div style="flex:1;min-width:180px;">
+                <p style="font-family:var(--ff-display);font-size:clamp(1.4rem,3vw,2rem);letter-spacing:0.06em;text-transform:uppercase;color:var(--c-silver);line-height:1;margin-bottom:0.3rem;">Richard Kerry</p>
+                <p style="font-family:var(--ff-sans);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.8rem;">D.E.L.O. · @rvkerry</p>
+                <p style="font-family:var(--ff-sans);font-size:0.78rem;color:rgba(232,232,232,0.5);line-height:1.5;">San Juan / Santurce, Puerto Rico<br />Trap Sentimental · Despecho Urbano Boricua</p>
+              </div>
+            </div>
+
             <div class="epk-bio-text">
               <p>
                 Richard Kerry es un artista urbano independiente de San Juan / Santurce, Puerto Rico, cuyo sonido define el trap sentimental boricua: lirismo de barrio, despecho cinematográfico y una voz que convierte la calle en poesía oscura.
@@ -2106,7 +2402,7 @@
                 En 2026 consolidó su presencia en el ecosistema de <strong>Benny Benni</strong> y <strong>Canales Inc</strong> con features en dos álbumes de alto perfil: <em>FMS vs Canales Inc</em> y <em>Desamores Vol.3</em> — ambos bajo el sello <strong>Serving Sounds</strong>. Su track <em>Te Gusta El Peligro</em> (feat. Benny Benni) alcanzó ~10K vistas en YouTube y generó un post de anuncio con 1,287 likes en Instagram — un 55% de engagement rate, 20 veces su promedio de perfil.
               </p>
               <p>
-                Su marca-era <strong>DELO · Diamantes en lo oscuro ♠️💎</strong> define un ciclo creativo de sonido oscuro, introspectivo y crudo-pulido, posicionándolo como una de las voces más auténticas del despecho urbano en Puerto Rico.
+                Su marca-era <strong>D.E.L.O. · Diamantes En Lo Oscuro ♠️💎</strong> define un ciclo creativo de sonido oscuro, introspectivo y crudo-pulido, posicionándolo como una de las voces más auténticas del despecho urbano en Puerto Rico.
               </p>
             </div>
 
@@ -2154,6 +2450,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="epk-link-item"
+                  aria-label="Te Gusta El Peligro en YouTube"
                 >
                   <span class="epk-link-dot"></span>
                   Te Gusta El Peligro — YouTube
@@ -2163,6 +2460,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="epk-link-item"
+                  aria-label="Ojos Cafe en Spotify"
                 >
                   <span class="epk-link-dot"></span>
                   Ojos Cafe — Spotify
@@ -2172,6 +2470,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="epk-link-item"
+                  aria-label="Catálogo completo en Spotify"
                 >
                   <span class="epk-link-dot"></span>
                   Catálogo completo — Spotify
@@ -2187,6 +2486,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="epk-link-item"
+                  aria-label="Instagram @rvkerry"
                 >
                   <span class="epk-link-dot"></span>
                   Instagram · @rvkerry
@@ -2201,14 +2501,13 @@
                   <strong>Ubicación:</strong> San Juan / Santurce, Puerto Rico
                 </p>
                 <p class="epk-contact-item">
-                  <strong>Email:</strong>
+                  <strong>Contacto:</strong>
                   <span style="color:rgba(232,232,232,0.35);font-size:0.75rem;">
-                    <!-- IRREDUCIBLE: conectar email de Richard antes del deploy -->
-                    [Contacto vía formulario de booking ↓]
+                    Vía formulario de booking ↓
                   </span>
                 </p>
               </div>
-              <a href="#booking" class="epk-download-btn">
+              <a href="#booking" class="epk-download-btn" aria-label="Solicitar booking de Richard Kerry">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                   <polyline points="7 10 12 15 17 10"/>
@@ -2228,9 +2527,9 @@
     <div class="section-divider" aria-hidden="true"></div>
 
     <!-- ============================================================
-         SECTION 6 · BOOKING FORM
+         SECTION 6 · BOOKING FORM — Web3Forms real POST
          ============================================================ -->
-    <section id="booking" class="section" aria-label="Booking — Contratar a Richard Kerry">
+    <section id="booking" class="section" aria-label="Booking — Contratar a Richard Kerry — D.E.L.O.">
       <div class="container">
 
         <div class="booking-layout">
@@ -2253,28 +2552,30 @@
                   </svg>
                 </div>
                 <p class="booking-info-text">
-                  <strong>Base:</strong> San Juan / Santurce, Puerto Rico — disponible para eventos en toda la isla y diáspora boricua.
+                  <strong>Ubicación base:</strong> San Juan / Santurce, Puerto Rico. Disponible para eventos en toda la isla y diáspora.
                 </p>
               </div>
               <div class="booking-info-item">
                 <div class="booking-info-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
                   </svg>
                 </div>
                 <p class="booking-info-text">
-                  <strong>Respuesta:</strong> En menos de 48 horas para consultas de booking.
+                  <strong>Disponibilidad:</strong> Consulta fechas directamente. Respuesta en menos de 48 horas.
                 </p>
               </div>
               <div class="booking-info-item">
                 <div class="booking-info-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.09 6.09l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
                 </div>
                 <p class="booking-info-text">
-                  <strong>Credencial:</strong> Featured en 2 álbumes Benny Benni / Canales Inc · 2026.
+                  <strong>Contacto rápido:</strong> Completa el formulario o escríbenos por Instagram <a href="https://www.instagram.com/rvkerry" target="_blank" rel="noopener noreferrer" style="color:var(--c-gold);">@rvkerry</a>.
                 </p>
               </div>
             </div>
@@ -2282,45 +2583,51 @@
 
           <div class="booking-form-wrap reveal reveal-delay-2">
             <h3 class="booking-form-title">Solicitud de Booking</h3>
-            <p class="booking-form-sub">Todos los campos son necesarios para evaluar tu propuesta.</p>
+            <p class="booking-form-sub">
+              Completa el formulario y te contactamos directamente.
+            </p>
 
             <form id="bookingForm" novalidate>
+              <!-- Honeypot anti-spam -->
+              <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+
               <div class="form-row">
                 <div class="form-group">
-                  <label class="form-label" for="bk-name">Tu Nombre</label>
+                  <label class="form-label" for="bk-name">Nombre</label>
                   <input
                     class="form-input"
                     type="text"
                     id="bk-name"
-                    name="name"
-                    placeholder="Nombre completo"
+                    name="nombre"
+                    placeholder="Tu nombre"
                     autocomplete="name"
                     required
                   />
                 </div>
                 <div class="form-group">
-                  <label class="form-label" for="bk-contact">Email / WhatsApp</label>
+                  <label class="form-label" for="bk-contact">Contacto (email o tel)</label>
                   <input
                     class="form-input"
                     type="text"
                     id="bk-contact"
-                    name="contact"
-                    placeholder="Email o +1 787..."
+                    name="contacto"
+                    placeholder="email o +1 787..."
                     required
                   />
                 </div>
               </div>
+
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label" for="bk-event">Tipo de Evento</label>
-                  <select class="form-select" id="bk-event" name="event_type" required>
-                    <option value="" disabled selected>Selecciona...</option>
-                    <option value="concierto">Concierto / Show</option>
-                    <option value="festival">Festival</option>
-                    <option value="privado">Evento Privado</option>
-                    <option value="corporativo">Corporativo</option>
-                    <option value="colaboracion">Colaboración Musical</option>
-                    <option value="otro">Otro</option>
+                  <select class="form-select" id="bk-event" name="tipo_evento" required>
+                    <option value="">Selecciona...</option>
+                    <option value="Concierto / Show">Concierto / Show</option>
+                    <option value="Festival">Festival</option>
+                    <option value="Evento Privado">Evento Privado</option>
+                    <option value="Club / Discoteca">Club / Discoteca</option>
+                    <option value="Colaboración">Colaboración</option>
+                    <option value="Otro">Otro</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -2329,35 +2636,35 @@
                     class="form-input"
                     type="date"
                     id="bk-date"
-                    name="event_date"
+                    name="fecha"
                     required
                   />
                 </div>
               </div>
+
               <div class="form-group">
-                <label class="form-label" for="bk-message">Detalles del Evento</label>
+                <label class="form-label" for="bk-message">Mensaje</label>
                 <textarea
                   class="form-textarea"
                   id="bk-message"
-                  name="message"
-                  placeholder="Cuéntanos sobre el evento: lugar, capacidad, presupuesto estimado..."
+                  name="mensaje"
+                  placeholder="Cuéntanos sobre tu evento — lugar, capacidad, presupuesto estimado..."
                   required
                 ></textarea>
               </div>
-              <button type="submit" class="btn-primary" style="width:100%;display:block;text-align:center;">
+
+              <button type="submit" class="btn-primary" style="width:100%;justify-content:center;display:block;text-align:center;">
                 Enviar Solicitud
               </button>
-              <p class="form-note">
-                <!-- IRREDUCIBLE: conectar destino email/WhatsApp de Richard antes del deploy -->
-                Tu solicitud será enviada directamente al equipo de Richard Kerry.
-              </p>
+              <div class="form-loading" id="bookingLoading">Enviando... ◆</div>
+              <div class="form-error" id="bookingError">Hubo un error al enviar. Escríbenos directamente por Instagram @rvkerry.</div>
             </form>
 
-            <div class="form-success" id="bookingSuccess">
+            <div class="form-success" id="bookingSuccess" aria-live="polite">
               <div class="form-success-icon">◆</div>
-              <p class="form-success-text">Solicitud Recibida</p>
+              <p class="form-success-text">¡Solicitud Recibida!</p>
               <p style="font-family:var(--ff-sans);font-size:0.82rem;color:rgba(232,232,232,0.5);margin-top:0.5rem;">
-                El equipo de Richard Kerry te contactará en menos de 48 horas.
+                El equipo de D.E.L.O. te contactará en menos de 48 horas.
               </p>
             </div>
 
@@ -2380,7 +2687,7 @@
 
         <div>
           <p class="footer-brand-name">Richard<br />Kerry</p>
-          <p class="footer-brand-era">DELO · Diamantes en lo oscuro ♠️ ◆</p>
+          <p class="footer-brand-era">D.E.L.O. · Diamantes En Lo Oscuro ♠️💎</p>
           <p class="footer-brand-desc">
             Artista urbano independiente de San Juan / Santurce, Puerto Rico. Trap sentimental, despecho boricua, lirismo de barrio.
           </p>
@@ -2390,9 +2697,8 @@
               target="_blank"
               rel="noopener noreferrer"
               class="footer-social-link"
-              aria-label="Instagram @rvkerry"
+              aria-label="Instagram @rvkerry — D.E.L.O."
             >
-              <!-- Instagram icon -->
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
@@ -2402,9 +2708,8 @@
               target="_blank"
               rel="noopener noreferrer"
               class="footer-social-link"
-              aria-label="Spotify — Ojos Cafe"
+              aria-label="Spotify — Ojos Cafe — D.E.L.O."
             >
-              <!-- Spotify icon -->
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
               </svg>
@@ -2471,7 +2776,6 @@
 
       var mouseX = 0, mouseY = 0;
       var ringX  = 0, ringY  = 0;
-      var rafId  = null;
 
       document.addEventListener('mousemove', function (e) {
         mouseX = e.clientX;
@@ -2484,8 +2788,9 @@
         ringX += (mouseX - ringX) * 0.12;
         ringY += (mouseY - ringY) * 0.12;
         ring.style.left = ringX + 'px';
-        ring.style.top  = ringY + 'px';
-        rafId = requestAnimationFrame(animateRing);
+        ring.style
+.top  = ringY + 'px';
+        requestAnimationFrame(animateRing);
       }
       animateRing();
 
@@ -2498,15 +2803,81 @@
     })();
 
     /* ============================================================
+       HERO CURSOR LIGHT FOLLOW — desktop only (INV-5)
+       ============================================================ */
+    (function () {
+      var isPointerFine = window.matchMedia('(pointer: fine) and (hover: hover)').matches;
+      if (!isPointerFine) return;
+
+      var hero = document.getElementById('hero');
+      var light = document.getElementById('heroCursorLight');
+      if (!hero || !light) return;
+
+      hero.addEventListener('mousemove', function (e) {
+        var rect = hero.getBoundingClientRect();
+        var x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1) + '%';
+        var y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1) + '%';
+        light.style.setProperty('--mx', x);
+        light.style.setProperty('--my', y);
+        light.style.background = 'radial-gradient(circle 280px at ' + x + ' ' + y + ', rgba(232,232,232,0.04) 0%, rgba(212,169,106,0.02) 40%, transparent 70%)';
+      }, { passive: true });
+    })();
+
+    /* ============================================================
+       HERO VIDEO — device-aware + reduced-motion + fallback
+       Show photo on: mobile (coarse pointer) / reduced-motion / video error
+       ============================================================ */
+    (function () {
+      var video    = document.getElementById('heroBgVideo');
+      var photoBg  = document.getElementById('heroPhotoBg');
+      var videoBg  = document.getElementById('heroVideoBg');
+      if (!video || !photoBg) return;
+
+      var isCoarse  = window.matchMedia('(pointer: coarse)').matches;
+      var isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function showPhoto() {
+        photoBg.classList.add('active');
+        if (videoBg) videoBg.style.display = 'none';
+      }
+
+      if (isCoarse || isReduced) {
+        showPhoto();
+        return;
+      }
+
+      // Desktop: try to play video
+      video.addEventListener('error', showPhoto);
+      video.addEventListener('stalled', function () {
+        setTimeout(showPhoto, 3000);
+      });
+
+      // If video loads and plays, keep it; photo stays hidden (opacity 0)
+      video.addEventListener('playing', function () {
+        photoBg.classList.remove('active');
+      });
+
+      // Fallback: if video doesn't start within 4s, show photo
+      var fallbackTimer = setTimeout(function () {
+        if (video.paused || video.readyState < 2) {
+          showPhoto();
+        }
+      }, 4000);
+
+      video.addEventListener('playing', function () {
+        clearTimeout(fallbackTimer);
+      });
+    })();
+
+    /* ============================================================
        NAVIGATION — scroll state + hamburger
        ============================================================ */
     (function () {
-      var nav = document.getElementById('mainNav');
+      var nav       = document.getElementById('mainNav');
       var hamburger = document.getElementById('hamburgerBtn');
       var mobileMenu = document.getElementById('mobileMenu');
       var mobileClose = document.getElementById('mobileMenuClose');
 
-      // Scroll state
       function onScroll() {
         if (window.scrollY > 60) {
           nav.classList.add('scrolled');
@@ -2517,7 +2888,6 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
 
-      // Hamburger
       if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', function () {
           mobileMenu.classList.add('open');
@@ -2527,12 +2897,9 @@
       }
 
       if (mobileClose && mobileMenu) {
-        mobileClose.addEventListener('click', function () {
-          closeMobileMenu();
-        });
+        mobileClose.addEventListener('click', function () { closeMobileMenu(); });
       }
 
-      // Close on backdrop click
       if (mobileMenu) {
         mobileMenu.addEventListener('click', function (e) {
           if (e.target === mobileMenu) closeMobileMenu();
@@ -2553,7 +2920,6 @@
        ============================================================ */
     (function () {
       if (!('IntersectionObserver' in window)) {
-        // Fallback: show all
         document.querySelectorAll('.reveal').forEach(function (el) {
           el.classList.add('visible');
         });
@@ -2567,10 +2933,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
       document.querySelectorAll('.reveal').forEach(function (el) {
         observer.observe(el);
@@ -2578,7 +2941,7 @@
     })();
 
     /* ============================================================
-       SMOOTH SCROLL — native + polyfill
+       SMOOTH SCROLL
        ============================================================ */
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {
@@ -2595,79 +2958,147 @@
     });
 
     /* ============================================================
-       FANCLUB FORM — client-side handler
-       IRREDUCIBLE: conectar endpoint real antes del deploy
+       WEB3FORMS — REAL POST (NOT a phantom form · CAP-004 fix)
+       IRREDUCIBLE: Replace W3F_ACCESS_KEY value with real key tied to Richard's email
+       The fetch() is complete and functional — only the key value is pending.
        ============================================================ */
+    var W3F_ACCESS_KEY = "REEMPLAZAR_ANTES_DEL_DEPLOY_FINAL_W3F_KEY"; // IRREDUCIBLE: key Web3Forms ligada al email de Richard · FORGE la cablea antes del deploy a cliente
+
+    /* ---- FANCLUB FORM ---- */
     (function () {
       var form    = document.getElementById('fanclubForm');
       var success = document.getElementById('fanclubSuccess');
+      var loading = document.getElementById('fanclubLoading');
+      var errorEl = document.getElementById('fanclubError');
       if (!form) return;
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var name     = form.querySelector('[name="name"]').value.trim();
+        var nombre   = form.querySelector('[name="nombre"]').value.trim();
         var email    = form.querySelector('[name="email"]').value.trim();
-        var whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
+        var whatsapp = (form.querySelector('[name="whatsapp"]') || {}).value || '';
+        whatsapp = whatsapp.trim();
 
-        if (!name || !email) {
-          form.querySelector('[name="name"]').style.borderColor = !name ? 'var(--c-red)' : '';
-          form.querySelector('[name="email"]').style.borderColor = !email ? 'var(--c-red)' : '';
-          return;
-        }
+        // Client-side validation
+        var nameEl  = form.querySelector('[name="nombre"]');
+        var emailEl = form.querySelector('[name="email"]');
+        nameEl.style.borderColor  = nombre ? '' : 'var(--c-red)';
+        emailEl.style.borderColor = email  ? '' : 'var(--c-red)';
+        if (!nombre || !email) return;
 
-        // IRREDUCIBLE: reemplazar con fetch() al endpoint real (Mailchimp / ConvertKit / webhook)
-        // Ejemplo:
-        // fetch('https://[ENDPOINT-FANCLUB]', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify({ name, email, whatsapp })
-        // });
+        // Reset error
+        if (errorEl) errorEl.style.display = 'none';
 
-        // Placeholder UX — mostrar success
-        form.style.display = 'none';
-        if (success) success.style.display = 'block';
+        // Show loading
+        var submitBtn = form.querySelector('[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+        if (loading) loading.style.display = 'block';
+
+        var payload = {
+          access_key: W3F_ACCESS_KEY,
+          subject: 'Nuevo fan D.E.L.O. · ' + nombre,
+          nombre: nombre,
+          email: email,
+          whatsapp: whatsapp || '(no proporcionado)',
+          botcheck: ''
+        };
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (loading) loading.style.display = 'none';
+          if (data.success === true) {
+            // SUCCESS: real response confirmed
+            form.style.display = 'none';
+            if (success) success.style.display = 'block';
+          } else {
+            // API returned error
+            if (submitBtn) submitBtn.disabled = false;
+            if (errorEl) errorEl.style.display = 'block';
+          }
+        })
+        .catch(function () {
+          // Network error
+          if (loading) loading.style.display = 'none';
+          if (submitBtn) submitBtn.disabled = false;
+          if (errorEl) errorEl.style.display = 'block';
+        });
       });
     })();
 
-    /* ============================================================
-       BOOKING FORM — client-side handler
-       IRREDUCIBLE: conectar endpoint real antes del deploy
-       ============================================================ */
+    /* ---- BOOKING FORM ---- */
     (function () {
       var form    = document.getElementById('bookingForm');
       var success = document.getElementById('bookingSuccess');
+      var loading = document.getElementById('bookingLoading');
+      var errorEl = document.getElementById('bookingError');
       if (!form) return;
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var name    = form.querySelector('[name="name"]').value.trim();
-        var contact = form.querySelector('[name="contact"]').value.trim();
-        var event   = form.querySelector('[name="event_type"]').value;
-        var date    = form.querySelector('[name="event_date"]').value;
-        var message = form.querySelector('[name="message"]').value.trim();
+        var nombre     = form.querySelector('[name="nombre"]').value.trim();
+        var contacto   = form.querySelector('[name="contacto"]').value.trim();
+        var tipo       = form.querySelector('[name="tipo_evento"]').value;
+        var fecha      = form.querySelector('[name="fecha"]').value;
+        var mensaje    = form.querySelector('[name="mensaje"]').value.trim();
 
-        var valid = name && contact && event && date && message;
-        if (!valid) {
-          ['name','contact','event_type','event_date','message'].forEach(function (field) {
-            var el = form.querySelector('[name="' + field + '"]');
-            if (el) el.style.borderColor = !el.value.trim() ? 'var(--c-red)' : '';
-          });
-          return;
-        }
+        // Validation
+        var fields = ['nombre', 'contacto', 'tipo_evento', 'fecha', 'mensaje'];
+        var valid = true;
+        fields.forEach(function (f) {
+          var el = form.querySelector('[name="' + f + '"]');
+          if (el) {
+            var val = el.value.trim ? el.value.trim() : el.value;
+            if (!val) { el.style.borderColor = 'var(--c-red)'; valid = false; }
+            else { el.style.borderColor = ''; }
+          }
+        });
+        if (!valid) return;
 
-        // IRREDUCIBLE: reemplazar con fetch() al endpoint real (email/WhatsApp de Richard)
-        // Ejemplo:
-        // fetch('https://[ENDPOINT-BOOKING]', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify({ name, contact, event_type: event, event_date: date, message })
-        // });
+        if (errorEl) errorEl.style.display = 'none';
 
-        // Placeholder UX — mostrar success
-        form.style.display = 'none';
-        if (success) success.style.display = 'block';
+        var submitBtn = form.querySelector('[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+        if (loading) loading.style.display = 'block';
+
+        var payload = {
+          access_key: W3F_ACCESS_KEY,
+          subject: 'Booking Richard Kerry · ' + nombre,
+          nombre: nombre,
+          contacto: contacto,
+          tipo_evento: tipo,
+          fecha: fecha,
+          mensaje: mensaje,
+          botcheck: ''
+        };
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (loading) loading.style.display = 'none';
+          if (data.success === true) {
+            form.style.display = 'none';
+            if (success) success.style.display = 'block';
+          } else {
+            if (submitBtn) submitBtn.disabled = false;
+            if (errorEl) errorEl.style.display = 'block';
+          }
+        })
+        .catch(function () {
+          if (loading) loading.style.display = 'none';
+          if (submitBtn) submitBtn.disabled = false;
+          if (errorEl) errorEl.style.display = 'block';
+        });
       });
     })();
 
@@ -2694,10 +3125,9 @@
           }
         });
       }
-
       window.addEventListener('scroll', onScroll, { passive: true });
     })();
-  </script>
 
+  </script>
 </body>
 </html>
