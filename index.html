@@ -163,7 +163,7 @@
     ::-webkit-scrollbar-thumb { background: var(--c-red); border-radius: 2px; }
 
     /* ============================================================
-       NAVIGATION
+       NAVIGATION — 🟡3 FIX: gap/padding responsivo logo↔links
        ============================================================ */
     .nav {
       position: fixed;
@@ -173,6 +173,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: clamp(1rem, 3vw, 2rem);
       transition: background var(--transition), backdrop-filter var(--transition);
     }
 
@@ -189,14 +190,17 @@
       letter-spacing: 0.15em;
       color: var(--c-silver);
       transition: color var(--transition-fast);
+      flex-shrink: 0;
+      margin-right: clamp(1rem, 4vw, 3rem);
     }
 
     .nav-logo span { color: var(--c-gold); }
 
     .nav-links {
       display: flex;
-      gap: clamp(1.2rem, 3vw, 2.5rem);
+      gap: clamp(1rem, 2.5vw, 2.2rem);
       list-style: none;
+      flex-shrink: 0;
     }
 
     .nav-links a {
@@ -207,6 +211,7 @@
       text-transform: uppercase;
       color: rgba(232, 232, 232, 0.65);
       transition: color var(--transition-fast);
+      white-space: nowrap;
     }
 
     .nav-links a:hover { color: var(--c-gold); }
@@ -221,6 +226,7 @@
       border: 1px solid var(--c-red);
       padding: 0.5rem 1.1rem;
       transition: background var(--transition-fast), color var(--transition-fast) !important;
+      white-space: nowrap;
     }
 
     .nav-cta:hover {
@@ -249,6 +255,22 @@
     @media (max-width: 767px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+      .nav-logo { margin-right: 0; }
+    }
+
+    /* 🟡3: breakpoint intermedio 768-1100px — escala responsiva */
+    @media (min-width: 768px) and (max-width: 1100px) {
+      .nav-links {
+        gap: clamp(0.7rem, 1.8vw, 1.4rem);
+      }
+      .nav-links a {
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+      }
+      .nav-cta {
+        font-size: 0.65rem;
+        padding: 0.45rem 0.9rem;
+      }
     }
 
     /* Mobile menu */
@@ -289,6 +311,7 @@
 
     /* ============================================================
        HERO — ARTIST HERO (D.E.L.O. ERA · CINEMATOGRAPHIC · REAL PHOTO + VIDEO)
+       🟡2 FIX: overflow-x contenido · sin artifact rojo a la derecha
        ============================================================ */
     #hero {
       position: relative;
@@ -299,6 +322,8 @@
       justify-content: center;
       overflow: hidden;
       background: var(--c-black);
+      /* 🟡2: asegurar que nada se desborde del hero */
+      max-width: 100vw;
     }
 
     /* ---- VIDEO BACKGROUND (motion · loop · muted · playsinline) ---- */
@@ -307,6 +332,9 @@
       inset: 0;
       z-index: 0;
       overflow: hidden;
+      /* 🟡2: contener el video estrictamente dentro del hero */
+      width: 100%;
+      height: 100%;
     }
 
     .hero-video-bg video {
@@ -316,9 +344,12 @@
       object-position: center top;
       opacity: 0.55;
       filter: saturate(0.7) contrast(1.1);
+      /* 🟡2: no permitir que el video se extienda más allá */
+      display: block;
     }
 
-    /* Fallback photo layer — shown when video not playing / mobile / reduced-motion */
+    /* Fallback photo layer — shown when video not playing / mobile / reduced-motion
+       🟡4 FIX: usar hero-richard.jpg (gel rojo · frame D.E.L.O. definitivo) */
     .hero-photo-bg {
       position: absolute;
       inset: 0;
@@ -328,6 +359,10 @@
       background-position: center 20%;
       opacity: 0;
       transition: opacity 0.6s ease;
+      /* 🟡2: contener dentro del hero */
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
 
     .hero-photo-bg.active {
@@ -340,6 +375,10 @@
       inset: 0;
       z-index: 1;
       pointer-events: none;
+      /* 🟡2: contener el grade dentro del hero */
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
     }
 
     /* Red multiply layer */
@@ -371,6 +410,10 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
       background-size: 180px 180px;
       opacity: 0.5;
+      /* 🟡2: contener el grain */
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
     }
 
     /* Scanlines */
@@ -386,10 +429,12 @@
         rgba(0, 0, 0, 0.025) 4px
       );
       pointer-events: none;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
     }
 
     /* ---- DIAMOND LIGHT PLAY — D.E.L.O. IMMERSIVE SIGNATURE ---- */
-    /* CSS @property for animated conic diamond shimmer */
     @property --diamond-angle {
       syntax: '<angle>';
       initial-value: 0deg;
@@ -413,7 +458,10 @@
       inset: 0;
       z-index: 3;
       pointer-events: none;
+      /* 🟡2: overflow hidden CRÍTICO para eliminar el artifact rojo */
       overflow: hidden;
+      width: 100%;
+      height: 100%;
     }
 
     /* Large ghost diamond — breathes */
@@ -430,7 +478,8 @@
       will-change: transform, opacity;
     }
 
-    /* Shimmer ray — conic gradient rotating */
+    /* Shimmer ray — conic gradient rotating
+       🟡2: el shimmer ray es el causante del artifact — se contiene con overflow:hidden en el padre */
     .hero-diamond-light::after {
       content: '';
       position: absolute;
@@ -457,7 +506,7 @@
     @keyframes diamond-breathe {
       0%, 100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 0.5; }
       33%       { transform: translate(-50%, -50%) scale(1.03) rotate(1.5deg); opacity: 0.9; }
-      66%       { transform: translate(-50%, -50%) scale(0.98) rotate(-1deg); opacity: 0.7; }
+      66%       { transform: translate(-50%, -50%) scale(0.98) rotate(-1deg); opacity: 0.6; }
     }
 
     @keyframes diamond-spin {
@@ -479,6 +528,9 @@
           transparent 70%
         );
         transition: background 0.1s ease;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
       }
     }
 
@@ -1059,13 +1111,14 @@
 
     .track-embed-card iframe { border-radius: 0; display: block; }
 
-    /* Credentials card */
+    /* Credentials card — 🟡6: micro-reveal hover (pointer:fine only) */
     .credentials-card {
       background: var(--c-mid);
       border: 1px solid var(--c-border);
       padding: clamp(1.2rem, 3vw, 2rem);
       position: relative;
       overflow: hidden;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
     }
 
     .credentials-card::after {
@@ -1076,6 +1129,26 @@
       color: rgba(212, 169, 106, 0.04);
       line-height: 1;
       pointer-events: none;
+      transition: color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    /* 🟡6: micro-reveal hover — device-aware (INV-5: pointer:fine and hover:hover only) */
+    @media (pointer: fine) and (hover: hover) {
+      .credentials-card:hover {
+        border-color: rgba(212, 169, 106, 0.28);
+        box-shadow: 0 0 24px rgba(212, 169, 106, 0.06);
+      }
+      .credentials-card:hover::after {
+        color: rgba(212, 169, 106, 0.09);
+        transform: scale(1.08) rotate(6deg);
+      }
+      .credentials-card:hover .credential-item {
+        border-bottom-color: rgba(212, 169, 106, 0.14);
+      }
+      .credentials-card:hover .credential-dot {
+        background: var(--c-gold);
+        box-shadow: 0 0 6px rgba(212, 169, 106, 0.5);
+      }
     }
 
     .credentials-label {
@@ -1094,6 +1167,7 @@
       gap: 0.8rem;
       padding: 0.9rem 0;
       border-bottom: 1px solid rgba(212, 169, 106, 0.08);
+      transition: border-bottom-color var(--transition-fast);
     }
 
     .credential-item:last-child { border-bottom: none; }
@@ -1104,6 +1178,7 @@
       border-radius: 50%;
       flex-shrink: 0;
       margin-top: 0.4rem;
+      transition: background var(--transition-fast), box-shadow var(--transition-fast);
     }
 
     .credential-text {
@@ -1117,7 +1192,7 @@
     .credential-text em { color: var(--c-gold); font-style: normal; }
 
     /* ============================================================
-       TOUR / ACTIVIDAD
+       TOUR / ACTIVIDAD — 🟡6: micro-reveal hover en presencia-item
        ============================================================ */
     #actividad {
       background: var(--c-black);
@@ -1154,12 +1229,32 @@
       background: var(--c-mid);
       border-left: 2px solid var(--c-red);
       padding: 1.2rem 1.5rem;
-      transition: border-color var(--transition-fast), background var(--transition-fast);
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+      position: relative;
+      overflow: hidden;
     }
 
-    .presencia-item:hover {
-      background: rgba(26, 26, 26, 0.8);
-      border-left-color: var(--c-gold);
+    /* 🟡6: micro-reveal hover en presencia-item (pointer:fine only) */
+    @media (pointer: fine) and (hover: hover) {
+      .presencia-item:hover {
+        background: rgba(26, 26, 26, 0.9);
+        border-left-color: var(--c-gold);
+        transform: translateX(3px);
+        box-shadow: -3px 0 12px rgba(212, 169, 106, 0.08);
+      }
+      /* Micro-reveal: shimmer line al hover */
+      .presencia-item::after {
+        content: '';
+        position: absolute;
+        top: 0; right: 0;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(212, 169, 106, 0.04));
+        transition: width 0.35s ease;
+      }
+      .presencia-item:hover::after {
+        width: 100%;
+      }
     }
 
     .presencia-year {
@@ -1233,7 +1328,7 @@
       overflow: hidden;
     }
 
-    /* D.E.L.O. watermark — acrónimo con puntos en CSS decorativo (no copy visible) */
+    /* D.E.L.O. watermark */
     #fanclub::before {
       content: '◆';
       position: absolute;
@@ -1395,6 +1490,10 @@
       color: var(--c-red);
       margin-top: 0.8rem;
       display: none;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid rgba(192, 57, 43, 0.3);
+      background: rgba(192, 57, 43, 0.06);
+      line-height: 1.5;
     }
 
     .form-success {
@@ -1951,11 +2050,13 @@
 
     <!-- ============================================================
          SECTION 1 · ARTIST HERO — D.E.L.O. ERA
-         Video bg: hero-motion-baddy.mp4 · Poster/fallback: hero-richard.jpg
+         🟡4: hero-richard.jpg como foto principal (gel rojo · frame D.E.L.O. definitivo)
+         🟡5: video hero-motion-baddy.mp4 condicional (solo desktop, solo si honra paleta)
          ============================================================ -->
     <section id="hero" aria-label="Richard Kerry — D.E.L.O. — Diamantes En Lo Oscuro">
 
-      <!-- Video background (motion · loop · muted · playsinline · desktop/reduced-motion aware) -->
+      <!-- Video background (motion · loop · muted · playsinline · desktop/reduced-motion aware)
+           🟡5: hero-motion-baddy.mp4 — condicional, fallback a hero-richard.jpg (INV-5) -->
       <div class="hero-video-bg" id="heroVideoBg" aria-hidden="true">
         <video
           id="heroBgVideo"
@@ -1971,12 +2072,13 @@
         </video>
       </div>
 
-      <!-- Photo fallback (shown on mobile / reduced-motion / video load fail) -->
+      <!-- Photo fallback (shown on mobile / reduced-motion / video load fail)
+           🟡4: hero-richard.jpg — gel rojo introspección · frame D.E.L.O. definitivo -->
       <div
         class="hero-photo-bg"
         id="heroPhotoBg"
         role="img"
-        aria-label="Richard Kerry — gel rojo de estudio, era D.E.L.O."
+        aria-label="Richard Kerry — gel rojo de estudio, era D.E.L.O. — Diamantes En Lo Oscuro"
       ></div>
 
       <!-- D.E.L.O. color grade + vignette -->
@@ -2017,8 +2119,8 @@
         </p>
 
         <div class="hero-ctas">
-          <a href="#musica" class="btn-primary" aria-label="Escuchar música de Richard Kerry">Escucha Ahora</a>
-          <a href="#booking" class="btn-secondary" aria-label="Solicitar booking de Richard Kerry">Booking</a>
+          <a href="#musica" class="btn-primary" aria-label="Escuchar música de Richard Kerry — D.E.L.O.">Escucha Ahora</a>
+          <a href="#booking" class="btn-secondary" aria-label="Solicitar booking de Richard Kerry — D.E.L.O.">Booking</a>
         </div>
       </div>
 
@@ -2033,6 +2135,8 @@
 
     <!-- ============================================================
          SECTION 2 · SMARTLINK HUB — Catálogo + Spotify embed
+         🟡1: Links honestos — Spotify "Ojos Cafe" track directo verificado
+                              YouTube/Apple: búsqueda honesta (no URL inventada)
          ============================================================ -->
     <section id="musica" class="section" aria-label="Música de Richard Kerry — D.E.L.O.">
       <div class="container">
@@ -2072,18 +2176,20 @@
               </div>
 
               <div class="track-anchor-links">
+                <!-- 🟡1: YouTube — búsqueda honesta del término correcto (no URL directa inventada) -->
                 <a
                   href="https://www.youtube.com/results?search_query=Te+Gusta+El+Peligro+Benny+Benni+Richard+Kerry"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="platform-link"
-                  aria-label="Escuchar Te Gusta El Peligro en YouTube"
+                  aria-label="Buscar Te Gusta El Peligro en YouTube"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                   </svg>
                   YouTube
                 </a>
+                <!-- 🟡1: Spotify — búsqueda honesta (no URL directa inventada para este track) -->
                 <a
                   href="https://open.spotify.com/search/Te%20Gusta%20El%20Peligro%20Benny%20Benni%20Richard%20Kerry"
                   target="_blank"
@@ -2096,6 +2202,7 @@
                   </svg>
                   Spotify
                 </a>
+                <!-- 🟡1: Apple Music — búsqueda honesta (no URL directa inventada) -->
                 <a
                   href="https://music.apple.com/search?term=Te+Gusta+El+Peligro+Benny+Benni"
                   target="_blank"
@@ -2113,7 +2220,8 @@
             </div>
           </article>
 
-          <!-- Spotify embed: Ojos Cafe ft. Benny Benni (track del bio · ID verificado) -->
+          <!-- Spotify embed: Ojos Cafe ft. Benny Benni
+               🟡1: track ID 0iV3tL2ZOoUzTaKbtrdi8I verificado · directo · CONSERVADO -->
           <div class="track-embed-card reveal reveal-delay-3" aria-label="Ojos Cafe — Benny Benni, Richard Kerry — Spotify">
             <p class="track-embed-label">Escuchar Ahora · Spotify</p>
             <iframe
@@ -2124,14 +2232,14 @@
               allowfullscreen=""
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
-              title="Ojos Cafe — Benny Benni, Richard Kerry"
+              title="Ojos Cafe — Benny Benni, Richard Kerry — D.E.L.O."
             ></iframe>
             <p style="font-family:var(--ff-sans);font-size:0.7rem;color:rgba(232,232,232,0.35);margin-top:0.8rem;letter-spacing:0.05em;">
               Ojos Cafe · Benny Benni, Richard Kerry · D.E.L.O.
             </p>
           </div>
 
-          <!-- Credentials card -->
+          <!-- Credentials card — 🟡6: micro-reveal hover (pointer:fine only) -->
           <article class="credentials-card reveal reveal-delay-4" aria-label="Credenciales D.E.L.O. — Richard Kerry">
             <p class="credentials-label">Credenciales · 2026</p>
 
@@ -2174,6 +2282,7 @@
 
     <!-- ============================================================
          SECTION 3 · ACTIVIDAD / TOUR CALENDAR (INV-3: sin fechas inventadas)
+         🟡6: micro-reveal hover en presencia-items (pointer:fine only)
          ============================================================ -->
     <section id="actividad" class="section" aria-label="Actividad y presencia de Richard Kerry — D.E.L.O.">
       <div class="container">
@@ -2241,6 +2350,7 @@
 
     <!-- ============================================================
          SECTION 4 · FAN CLUB CAPTURE — Web3Forms real POST
+         🔴2 FIX: access_key como constante única explícita (consumida por handler unificado)
          ============================================================ -->
     <section id="fanclub" class="section" aria-label="Fanclub de Richard Kerry — D.E.L.O. — Diamantes En Lo Oscuro">
       <div class="container">
@@ -2445,32 +2555,35 @@
             <div class="epk-card">
               <p class="epk-card-title">Música</p>
               <div class="epk-links-list">
+                <!-- 🟡1: YouTube — búsqueda honesta -->
                 <a
                   href="https://www.youtube.com/results?search_query=Te+Gusta+El+Peligro+Benny+Benni+Richard+Kerry"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="epk-link-item"
-                  aria-label="Te Gusta El Peligro en YouTube"
+                  aria-label="Buscar Te Gusta El Peligro en YouTube"
                 >
                   <span class="epk-link-dot"></span>
                   Te Gusta El Peligro — YouTube
                 </a>
+                <!-- 🟡1: Spotify Ojos Cafe — track directo verificado CONSERVADO -->
                 <a
                   href="https://open.spotify.com/track/0iV3tL2ZOoUzTaKbtrdi8I"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="epk-link-item"
-                  aria-label="Ojos Cafe en Spotify"
+                  aria-label="Ojos Cafe en Spotify — D.E.L.O."
                 >
                   <span class="epk-link-dot"></span>
                   Ojos Cafe — Spotify
                 </a>
+                <!-- 🟡1: Catálogo — búsqueda honesta -->
                 <a
                   href="https://open.spotify.com/search/Richard%20Kerry%20Benny%20Benni"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="epk-link-item"
-                  aria-label="Catálogo completo en Spotify"
+                  aria-label="Catálogo completo de Richard Kerry en Spotify"
                 >
                   <span class="epk-link-dot"></span>
                   Catálogo completo — Spotify
@@ -2486,7 +2599,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   class="epk-link-item"
-                  aria-label="Instagram @rvkerry"
+                  aria-label="Instagram @rvkerry — D.E.L.O."
                 >
                   <span class="epk-link-dot"></span>
                   Instagram · @rvkerry
@@ -2507,7 +2620,7 @@
                   </span>
                 </p>
               </div>
-              <a href="#booking" class="epk-download-btn" aria-label="Solicitar booking de Richard Kerry">
+              <a href="#booking" class="epk-download-btn" aria-label="Solicitar booking de Richard Kerry — D.E.L.O.">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                   <polyline points="7 10 12 15 17 10"/>
@@ -2528,6 +2641,8 @@
 
     <!-- ============================================================
          SECTION 6 · BOOKING FORM — Web3Forms real POST
+         🔴1 FIX: handler fetch() unificado (misma función que Fan Club)
+         🔴2 FIX: access_key desde constante única W3F_ACCESS_KEY
          ============================================================ -->
     <section id="booking" class="section" aria-label="Booking — Contratar a Richard Kerry — D.E.L.O.">
       <div class="container">
@@ -2587,6 +2702,7 @@
               Completa el formulario y te contactamos directamente.
             </p>
 
+            <!-- 🔴1 FIX: form SIN action ni method (handler fetch() unificado en JS) -->
             <form id="bookingForm" novalidate>
               <!-- Honeypot anti-spam -->
               <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
@@ -2788,8 +2904,7 @@
         ringX += (mouseX - ringX) * 0.12;
         ringY += (mouseY - ringY) * 0.12;
         ring.style.left = ringX + 'px';
-        ring.style
-.top  = ringY + 'px';
+        ring.style.top  = ringY + 'px';
         requestAnimationFrame(animateRing);
       }
       animateRing();
@@ -2824,8 +2939,9 @@
     })();
 
     /* ============================================================
-       HERO VIDEO — device-aware + reduced-motion + fallback
-       Show photo on: mobile (coarse pointer) / reduced-motion / video error
+       HERO VIDEO — device-aware + reduced-motion + fallback (INV-5)
+       🟡5: video condicional — coarse/reduced-motion → foto hero-richard.jpg
+       Show photo on: mobile (coarse pointer) / reduced-motion / video error / timeout
        ============================================================ */
     (function () {
       var video    = document.getElementById('heroBgVideo');
@@ -2873,8 +2989,8 @@
        NAVIGATION — scroll state + hamburger
        ============================================================ */
     (function () {
-      var nav       = document.getElementById('mainNav');
-      var hamburger = document.getElementById('hamburgerBtn');
+      var nav        = document.getElementById('mainNav');
+      var hamburger  = document.getElementById('hamburgerBtn');
       var mobileMenu = document.getElementById('mobileMenu');
       var mobileClose = document.getElementById('mobileMenuClose');
 
@@ -2958,18 +3074,79 @@
     });
 
     /* ============================================================
-       WEB3FORMS — REAL POST (NOT a phantom form · CAP-004 fix)
+       WEB3FORMS — HANDLER UNIFICADO (🔴1 + 🔴2 FIX)
+       ============================================================
        IRREDUCIBLE: Replace W3F_ACCESS_KEY value with real key tied to Richard's email
        The fetch() is complete and functional — only the key value is pending.
+       GATE LEGAL: key real + email destino se cablean SOLO cuando bloque legal + dato
+       de destino de Richard estén resueltos (Pacto v0.4 / CAP-010 intactos).
        ============================================================ */
+
+    /* 🔴2 FIX: constante única explícita — AMBOS forms consumen esta sola constante */
     var W3F_ACCESS_KEY = "REEMPLAZAR_ANTES_DEL_DEPLOY_FINAL_W3F_KEY"; // IRREDUCIBLE: key Web3Forms ligada al email de Richard · FORGE la cablea antes del deploy a cliente
 
-    /* ---- FANCLUB FORM ---- */
+    /**
+     * 🔴1 FIX: submitW3FForm — handler reutilizable unificado para AMBOS forms.
+     * Un solo path de submit, dos forms que lo invocan.
+     * Elimina la divergencia silenciosa que causó CAP-004 reincidente en bookingForm.
+     *
+     * @param {HTMLFormElement} form       - El form a procesar
+     * @param {string}          subject    - Subject del email a enviar
+     * @param {Object}          payload    - Campos del form (ya validados)
+     * @param {string}          loadingId  - ID del elemento de loading
+     * @param {string}          errorId    - ID del elemento de error
+     * @param {string}          successId  - ID del elemento de éxito
+     */
+    function submitW3FForm(form, subject, payload, loadingId, errorId, successId) {
+      var loadingEl = document.getElementById(loadingId);
+      var errorEl   = document.getElementById(errorId);
+      var successEl = document.getElementById(successId);
+      var submitBtn = form.querySelector('[type="submit"]');
+
+      // Reset error, show loading
+      if (errorEl)   errorEl.style.display = 'none';
+      if (submitBtn) submitBtn.disabled = true;
+      if (loadingEl) loadingEl.style.display = 'block';
+
+      // Construir payload completo con access_key y subject
+      var fullPayload = Object.assign({}, payload, {
+        access_key: W3F_ACCESS_KEY,
+        subject: subject,
+        botcheck: ''
+      });
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(fullPayload)
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (data.success === true) {
+          /* ÉXITO REAL: HTTP 200 + data.success === true (await real) */
+          form.style.display = 'none';
+          if (successEl) successEl.style.display = 'block';
+        } else {
+          /* API devolvió error (key placeholder → falla honesto y visible · CAP-004) */
+          if (submitBtn) submitBtn.disabled = false;
+          if (errorEl)   errorEl.style.display = 'block';
+        }
+      })
+      .catch(function () {
+        /* Error de red — falla honesto y visible · NUNCA finge éxito · CAP-004 */
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (submitBtn) submitBtn.disabled = false;
+        if (errorEl)   errorEl.style.display = 'block';
+      });
+    }
+
+    /* ---- FANCLUB FORM — usa handler unificado ---- */
     (function () {
-      var form    = document.getElementById('fanclubForm');
-      var success = document.getElementById('fanclubSuccess');
-      var loading = document.getElementById('fanclubLoading');
-      var errorEl = document.getElementById('fanclubError');
+      var form = document.getElementById('fanclubForm');
       if (!form) return;
 
       form.addEventListener('submit', function (e) {
@@ -2987,68 +3164,38 @@
         emailEl.style.borderColor = email  ? '' : 'var(--c-red)';
         if (!nombre || !email) return;
 
-        // Reset error
-        if (errorEl) errorEl.style.display = 'none';
-
-        // Show loading
-        var submitBtn = form.querySelector('[type="submit"]');
-        if (submitBtn) submitBtn.disabled = true;
-        if (loading) loading.style.display = 'block';
-
         var payload = {
-          access_key: W3F_ACCESS_KEY,
-          subject: 'Nuevo fan D.E.L.O. · ' + nombre,
-          nombre: nombre,
-          email: email,
-          whatsapp: whatsapp || '(no proporcionado)',
-          botcheck: ''
+          nombre:   nombre,
+          email:    email,
+          whatsapp: whatsapp || '(no proporcionado)'
         };
 
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
-        })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (loading) loading.style.display = 'none';
-          if (data.success === true) {
-            // SUCCESS: real response confirmed
-            form.style.display = 'none';
-            if (success) success.style.display = 'block';
-          } else {
-            // API returned error
-            if (submitBtn) submitBtn.disabled = false;
-            if (errorEl) errorEl.style.display = 'block';
-          }
-        })
-        .catch(function () {
-          // Network error
-          if (loading) loading.style.display = 'none';
-          if (submitBtn) submitBtn.disabled = false;
-          if (errorEl) errorEl.style.display = 'block';
-        });
+        submitW3FForm(
+          form,
+          'Nuevo fan D.E.L.O. · ' + nombre,
+          payload,
+          'fanclubLoading',
+          'fanclubError',
+          'fanclubSuccess'
+        );
       });
     })();
 
-    /* ---- BOOKING FORM ---- */
+    /* ---- BOOKING FORM — usa el MISMO handler unificado (🔴1 FIX) ---- */
     (function () {
-      var form    = document.getElementById('bookingForm');
-      var success = document.getElementById('bookingSuccess');
-      var loading = document.getElementById('bookingLoading');
-      var errorEl = document.getElementById('bookingError');
+      var form = document.getElementById('bookingForm');
       if (!form) return;
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        var nombre     = form.querySelector('[name="nombre"]').value.trim();
-        var contacto   = form.querySelector('[name="contacto"]').value.trim();
-        var tipo       = form.querySelector('[name="tipo_evento"]').value;
-        var fecha      = form.querySelector('[name="fecha"]').value;
-        var mensaje    = form.querySelector('[name="mensaje"]').value.trim();
+        var nombre   = form.querySelector('[name="nombre"]').value.trim();
+        var contacto = form.querySelector('[name="contacto"]').value.trim();
+        var tipo     = form.querySelector('[name="tipo_evento"]').value;
+        var fecha    = form.querySelector('[name="fecha"]').value;
+        var mensaje  = form.querySelector('[name="mensaje"]').value.trim();
 
-        // Validation
+        // Validation — todos los campos requeridos
         var fields = ['nombre', 'contacto', 'tipo_evento', 'fecha', 'mensaje'];
         var valid = true;
         fields.forEach(function (f) {
@@ -3056,49 +3203,28 @@
           if (el) {
             var val = el.value.trim ? el.value.trim() : el.value;
             if (!val) { el.style.borderColor = 'var(--c-red)'; valid = false; }
-            else { el.style.borderColor = ''; }
+            else      { el.style.borderColor = ''; }
           }
         });
         if (!valid) return;
 
-        if (errorEl) errorEl.style.display = 'none';
-
-        var submitBtn = form.querySelector('[type="submit"]');
-        if (submitBtn) submitBtn.disabled = true;
-        if (loading) loading.style.display = 'block';
-
         var payload = {
-          access_key: W3F_ACCESS_KEY,
-          subject: 'Booking Richard Kerry · ' + nombre,
-          nombre: nombre,
-          contacto: contacto,
+          nombre:      nombre,
+          contacto:    contacto,
           tipo_evento: tipo,
-          fecha: fecha,
-          mensaje: mensaje,
-          botcheck: ''
+          fecha:       fecha,
+          mensaje:     mensaje
         };
 
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
-        })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (loading) loading.style.display = 'none';
-          if (data.success === true) {
-            form.style.display = 'none';
-            if (success) success.style.display = 'block';
-          } else {
-            if (submitBtn) submitBtn.disabled = false;
-            if (errorEl) errorEl.style.display = 'block';
-          }
-        })
-        .catch(function () {
-          if (loading) loading.style.display = 'none';
-          if (submitBtn) submitBtn.disabled = false;
-          if (errorEl) errorEl.style.display = 'block';
-        });
+        /* 🔴1 FIX: misma función submitW3FForm que Fan Club — un solo path de submit */
+        submitW3FForm(
+          form,
+          'Booking Richard Kerry · ' + nombre,
+          payload,
+          'bookingLoading',
+          'bookingError',
+          'bookingSuccess'
+        );
       });
     })();
 
