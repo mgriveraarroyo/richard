@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Status" content="410 Gone">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>Not available</title>
+<script>
+// Force unregister any old service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(r => r.forEach(reg => reg.unregister()));
+  if (window.caches) caches.keys().then(k => k.forEach(n => caches.delete(n)));
+}
+</script>
 <style>
 body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #fafafa; color: #333; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 2rem; text-align: center; }
 .msg { max-width: 480px; }
